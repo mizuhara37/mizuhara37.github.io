@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>介绍一下自己</title>
+    <link href="/2022/09/03/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1/"/>
+    <url>/2022/09/03/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E8%87%AA%E5%B7%B1/</url>
+    
+    <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>我叫做Mizuhara37 或者 Mizuhara Shi，喜欢做一些有意思的事情，就比如像这个博客，做QQ机器人这一些的。</p><p>有这一点点的只是为了OI的编程基础，很多东西都是自学的。</p><p>我还是挺喜欢玩游戏，但是现在不允许</p><p>我还有很多不足的地方需要改正的，但我相信，影视飓风的无限进步！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>我的</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>学习与开发</title>
+    <link href="/2022/07/29/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/"/>
+    <url>/2022/07/29/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/</url>
+    
+    <content type="html"><![CDATA[<p>欢迎来到我的Blog，这是我的第一篇文章，我们来讲一讲我的 学习进程 和 项目开发进程 。</p><h2 id="学习进程"><a href="#学习进程" class="headerlink" title="学习进程"></a>学习进程</h2><h3 id="网络学习"><a href="#网络学习" class="headerlink" title="网络学习"></a>网络学习</h3><p>我初步的学习了HTML和Hexo博客项目。相比较下，Hexo可能比较简单。</p><p>在文章创建文章方面，Hexo只需要：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>十分的简单，然而对于HTML来说，在我的认知范围内，先要做个HTML模板，在重新创建一个html文件，用超链接去href到html。</p><p>对于模板的修改，Hexo更加的整洁。Hexo只要修改“_config.yml”内的内容,还有theme主题里的”_config.yml”的内容,非常的简单。对于界面的修改的话，hexo更加的简单，例如：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">...<br>about : /about<br>...<br>只要修改为   关于 : /about<br></code></pre></td></tr></table></figure><p>然而html,需要修改 a标签 或者 p标签 的内容,在一大堆代码中修改,是很凌乱的.</p><p>不仅能如此,hexo的部署也十分的简单,有专门部署的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure><p>还有我认为hexo的最好的一点就是文章利用Markdown的格式,很实用,很便捷.</p><h2 id="Javascript-学习"><a href="#Javascript-学习" class="headerlink" title="Javascript 学习"></a>Javascript 学习</h2><p>为了能够完善QQ群的机器人功能,我学习了Javascript,发现在很多的语法与C++有相似的地方,这对于我的JS学习更加简单化,不管是”for””if”等都是和C++相同的。还有Javascript的变量的定义，只要一个 var 变量名称 就可以用了。</p><h2 id="项目开发进程"><a href="#项目开发进程" class="headerlink" title="项目开发进程"></a>项目开发进程</h2><p>暂无</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>开发</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
