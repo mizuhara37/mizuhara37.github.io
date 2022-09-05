@@ -24,7 +24,7 @@
 <meta property="og:description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: DodgerBlue;   border: none;   color: white;   text-align: center;   font-size: 10px;   padding: 10px;   width: 100px;   t">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T02:38:16.000Z">
-<meta property="article:modified_time" content="2022-09-05T08:56:45.625Z">
+<meta property="article:modified_time" content="2022-09-05T08:59:32.576Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -436,7 +436,7 @@ function checkStorage(){
                 {
                         if(user=="FR_qwq") {status=2;called="快do";id=10000;setStorage("status",status);setStorage("id",id);setStorage("called",called);}
                  	  if(user=="Mizuhara37") {status=2;called="咕咕咕";id=10001;setStorage("status",status);setStorage("id",id);setStorage("called",called);}
-                        if(user=="慈溪许子涵大老板") {coin=1145141919810;status=2;called="首富者也";id=66666;setStorage("status",status);setStorage("id",id);setStorage("coin",coin);setStorage("called",called);}
+                        if(user=="慈溪许子涵大老板") {coin=1145141919810;status=6;called="首富者也";id=66666;setStorage("status",status);setStorage("id",id);setStorage("coin",coin);setStorage("called",called);}
                 }
                 //Normal
                 {
@@ -450,6 +450,7 @@ function checkStorage(){
         if(status == 0) document.getElementById("status").innerHTML="注册用户";
         else if(status == 1) document.getElementById("status").innerHTML="普通用户";
         else if(status == 2) document.getElementById("status").innerHTML="统括领事";
+        else if(status == 6) document.getElementById("status").innerHTML="香港用户";
         document.getElementById("called").innerHTML=called;
         if(id=="")
         {
