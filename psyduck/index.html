@@ -24,7 +24,7 @@
 <meta property="og:description" content="这里提供了可达鸭机器人的部分功能，可以在线实现   function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;)     if (user!&#x3D;&quot;&quot; &amp;&amp; user!&#x3D;nul">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-03T13:29:28.000Z">
-<meta property="article:modified_time" content="2022-09-05T06:04:05.217Z">
+<meta property="article:modified_time" content="2022-09-05T07:26:34.639Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -277,12 +277,13 @@ function checkStorage(){
       alert(user + "，欢迎回来！");
     }
     else {
-        user = prompt("创建你的用户名:","");
+        user = prompt("一定要记住你的用户名，如果要更改请联系管理员\n创建你的用户名:","");
           if (user!="" && user!=null){
         setStorage("user",user);
         setStorage("coin",0);
         setStorage("status",0);
-        setStorage("called",0);
+        setStorage("called","无");
+        setStorage("id","");
         }
     }
 }
