@@ -16,21 +16,21 @@
   <meta name="author" content="Mizuhara37">
   <meta name="keywords" content="">
   
-    <meta name="description" content="function setCookie(cname,cvalue,exdays){     var d &#x3D; new Date();     d.setTime(d.getTime()+(exdays*24*60*60*20000));     var expires &#x3D; &quot;expires&#x3D;&quot;+d.toGMTString();     document.cookie &#x3D; cname+&quot;&#x3D;&quot;+cval">
+    <meta name="description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: ;   border: none;   color: white;   text-align: center;   font-size: 5px;   padding: 10px;   width: 70px;   transition: a">
 <meta property="og:type" content="website">
-<meta property="og:title" content="homepage">
+<meta property="og:title" content="个人主页">
 <meta property="og:url" content="http://mizuhara37.github.io/homepage/index.html">
 <meta property="og:site_name" content="Mizuhara37 Blog">
-<meta property="og:description" content="function setCookie(cname,cvalue,exdays){     var d &#x3D; new Date();     d.setTime(d.getTime()+(exdays*24*60*60*20000));     var expires &#x3D; &quot;expires&#x3D;&quot;+d.toGMTString();     document.cookie &#x3D; cname+&quot;&#x3D;&quot;+cval">
+<meta property="og:description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: ;   border: none;   color: white;   text-align: center;   font-size: 5px;   padding: 10px;   width: 70px;   transition: a">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T02:38:16.000Z">
-<meta property="article:modified_time" content="2022-09-04T02:54:54.595Z">
+<meta property="article:modified_time" content="2022-09-05T06:19:32.292Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>homepage - Mizuhara37 Blog</title>
+  <title>个人主页 - Mizuhara37 Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="homepage"></span>
+            <span id="subtitle" data-typed-text="个人主页"></span>
           
         </div>
 
@@ -265,40 +265,81 @@
                 
 
 <article class="page-content">
-  <script>
-function setCookie(cname,cvalue,exdays){
-    var d = new Date();
-    d.setTime(d.getTime()+(exdays*24*60*60*20000));
-    var expires = "expires="+d.toGMTString();
-    document.cookie = cname+"="+cvalue+"; "+expire+";path=/";
+  <style>
+.button {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: ;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 5px;
+  padding: 10px;
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
-function getCookie(cname){
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i].trim();
-        if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+<script>
+function setStorage(cname,cvalue){
+     localStorage.setItem(cname,cvalue);
+}
+function checkStorage(){
+    var user=localStorage.getItem("user");
+    var coin=localStorage.getItem("coin");
+    var status=localStorage.getItem("status");
+    var called=localStorage.getItem("called");
+    if (user!="" && user!=null){
+      // alert(user + "，欢迎回来！");
+      document.getElementById("user").innerHTML=user;
+        document.getElementById("coin").innerHTML=coin;
+        if(user=="Mizuhara37") {status=2;called="咕咕咕"}
+        if(status == 0) document.getElementById("status").innerHTML="注册用户";
+        else if(status == 1) document.getElementById("status").innerHTML="普通用户";
+        else if(status == 2) document.getElementById("status").innerHTML="统括领事";
+        document.getElementById("called").innerHTML=called;
     }
-    return "";
-}
-function checkCookie(){
-    var user=getCookie("username");
-    if (user!=""){
-    document.getElementById("name").innerHTML=user;
-    
-  }
     else {
         user = prompt("创建你的用户名:","");
           if (user!="" && user!=null){
-            setCookie("username",user,30);
+        setStorage("user",user);
+        setStorage("coin",0);
+        setStorage("status",0);
+        setStorage("called","无");
         }
     }
 }
 </script>
+</head>
+    
+<body onload="checkStorage()"></body>
 
-<body onload="checkCookie()"></body>
 
-<h3 id="欢迎回来"><a href="#欢迎回来" class="headerlink" title="欢迎回来,  "></a>欢迎回来,  <p id = "name"></p></h3><h3 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h3>
+
+<p><button class="button" id="called"></button><a id = "user"></a></p>
+<h4 id="你目前拥有-个迈阿密西西比特币"><a href="#你目前拥有-个迈阿密西西比特币" class="headerlink" title="你目前拥有  个迈阿密西西比特币"></a>你目前拥有 <a id = 'coin'></a> 个迈阿密西西比特币</h4><h4 id="用户状态"><a href="#用户状态" class="headerlink" title="用户状态: "></a>用户状态: <a id = 'status'></a></h4>
 
   
 
