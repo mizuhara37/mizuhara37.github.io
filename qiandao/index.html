@@ -16,21 +16,21 @@
   <meta name="author" content="Mizuhara37">
   <meta name="keywords" content="">
   
-    <meta name="description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: DodgerBlue;   border: none;   color: white;   text-align: center;   font-size: 10px;   padding: 10px;   width: 100px;   t">
+    <meta name="description" content="你好！">
 <meta property="og:type" content="website">
-<meta property="og:title" content="个人主页">
-<meta property="og:url" content="http://mizuhara37.github.io/homepage/index.html">
+<meta property="og:title" content="qiandao">
+<meta property="og:url" content="http://mizuhara37.github.io/qiandao/index.html">
 <meta property="og:site_name" content="Mizuhara37 Blog">
-<meta property="og:description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: DodgerBlue;   border: none;   color: white;   text-align: center;   font-size: 10px;   padding: 10px;   width: 100px;   t">
+<meta property="og:description" content="你好！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-04T02:38:16.000Z">
-<meta property="article:modified_time" content="2022-09-05T09:09:51.504Z">
+<meta property="article:published_time" content="2022-09-05T09:28:59.000Z">
+<meta property="article:modified_time" content="2022-09-05T09:28:59.721Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>个人主页 - Mizuhara37 Blog</title>
+  <title>qiandao - Mizuhara37 Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -237,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="个人主页"></span>
+            <span id="subtitle" data-typed-text="qiandao"></span>
           
         </div>
 
@@ -265,225 +265,7 @@
                 
 
 <article class="page-content">
-  <style>
-.button {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 10px;
-  padding: 10px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-.button span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-.button:hover span {
-  padding-right: 25px;
-}
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-.button2 {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: grey;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 10px;
-  padding: 10px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-.button2 span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-.button2 span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-.button2:hover span {
-  padding-right: 25px;
-}
-.button2:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-.eInput{
-        font-size: 12px;
-        color: #333333;
-    }
-    input{
-        width: 260px;
-        height: 24px;
-        background: #FFFFFF;
-        border: 1px solid #D9D9D9;
-        border-radius: 4px;
-        padding:0 10px;
-        outline-style: none ;
-    }
-    .eInput input:focus{
-        border: 1px solid #0085BD;
-        height: 24px;
-        line-height: 22px;
-        caret-color:#0085BD;
-    }
-    input:hover{
-        border: 1px solid #B2E2F6;
-    }
-</style>
-<script>
-    // 字符串加密构造函数
-    function compileStr(code){
-        var c = String.fromCharCode(code.charCodeAt(0) + code.length);
-        for(var i = 1; i < code.length ; i++){
-            c += String.fromCharCode(code.charCodeAt(i) + code.charCodeAt(i - 1));
-        }
-        return escape(c)
-    }
-    // 字符串解密构造函数
-    function unCompileStr(code){
-        code = unescape(code);
-        var c = String.fromCharCode(code.charCodeAt(0) - code.length);
-        for(var i = 1; i < code.length; i++){
-            c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
-        }
-        return c;
-    }
-function copyToClip(content, message) {
-      var user=localStorage.getItem("user");
-    var coin=localStorage.getItem("coin");
-    var status=localStorage.getItem("status");
-    var called=localStorage.getItem("called");
-      var s=compileStr(user+'/'+coin+'/'+status+'/'+called+'/');
-    var aux = document.createElement("input"); 
-    aux.setAttribute("value", s); 
-    document.body.appendChild(aux); 
-    aux.select();
-    document.execCommand("copy"); 
-    document.body.removeChild(aux);
-    if (message == null) {
-        alert("复制成功,请尽快保存到备忘录");
-    } else{
-        alert(message);
-    }
-}
-function re()
-{
-      var s = document.getElementById("textId").value; 
-        s=unCompileStr(s);
-      // alert(s);
-        var len=s.length,i,cnt=0,t="",user,coin,status,called;
-        
-        for(i=0;i<len;i++)
-        {
-                if(s[i]!='/') t=t+s[i];
-                else
-                {
-                        if(cnt==0){cnt++;user=t;}
-                        else if(cnt==1){cnt++;coin=Number(t);}
-                        else if(cnt==2){cnt++;status=Number(t);}
-                        else if(cnt==3){cnt++;called=t;}
-                        t='';					
-                }
-        }
-        var message='读取存档成功\n用户名为'+user+'\n迈阿密西西比特币:'+coin+'\n用户状态:'+status+'\n称号:'+called;
-        alert(message);
-        setStorage("user",user);
-        setStorage("coin",coin);
-        setStorage("status",status);
-        setStorage("called",called);
-        alert("恢复成功,请刷新!")
-}
-function setStorage(cname,cvalue){
-     localStorage.setItem(cname,cvalue);
-}
-function checkStorage(){
-    var user=localStorage.getItem("user");
-    var coin=localStorage.getItem("coin");
-    var status=localStorage.getItem("status");
-    var called=localStorage.getItem("called");
-    //转正用户
-    { 
-                //Admin
-                {
-                        if(user=="FR_qwq") {status=2;called="快do";id=10000;setStorage("status",status);setStorage("id",id);setStorage("called",called);}
-                 	  if(user=="Mizuhara37") {status=2;called="咕咕咕";id=10001;setStorage("status",status);setStorage("id",id);setStorage("called",called);}
-                        if(user=="慈溪许子涵大老板") {coin=1145141919810;status=6;called="首富者也";id=66666;setStorage("status",status);setStorage("id",id);setStorage("coin",coin);setStorage("called",called);}
-                }
-                //Normal
-                {
-                        
-                }
-    }
-    if (user!="" && user!=null){
-      // alert(user + "，欢迎回来！");
-      document.getElementById("user").innerHTML=user;
-        document.getElementById("coin").innerHTML=coin;
-        if(status == 0) document.getElementById("status").innerHTML="注册用户";
-        else if(status == 1) document.getElementById("status").innerHTML="普通用户";
-        else if(status == 2) document.getElementById("status").innerHTML="统括领事";
-        else if(status == 6) document.getElementById("status").innerHTML="香港用户";
-        document.getElementById("called").innerHTML=called;
-        if(id=="")
-        {
-             document.getElementById("id").innerHTML="UserID:[未转正没有ID]";
-        }
-        else
-        {
-             document.getElementById("id").innerHTML="UserID:"+id;
-        }
-    }
-    else {
-        user = prompt("创建你的用户名:","");
-          if (user!="" && user!=null){
-        setStorage("user",user);
-        setStorage("coin",0);
-        setStorage("status",0);
-        setStorage("called","无");
-                setStorage("id","");
-        }
-    }
-}
-</script>
-</head>
-    
-<body onload="checkStorage()"></body>
-
-
-
-<h5 id=""><a href="#" class="headerlink" title=""></a><button class="button" id="called"></button><a id = "user"></a></h5><h4 id="你目前拥有-个迈阿密西西比特币"><a href="#你目前拥有-个迈阿密西西比特币" class="headerlink" title="你目前拥有  个迈阿密西西比特币"></a>你目前拥有 <a id = 'coin'></a> 个迈阿密西西比特币</h4><h4 id="用户状态"><a href="#用户状态" class="headerlink" title="用户状态: "></a>用户状态: <a id = 'status'></a></h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a><a id = 'id'></a></h4><p><br><br><br><br><br><button class="button2" onclick='copyToClip("内容")'>存档码</button><br><br></p>
-<div class="einput">
-<button class="button2" onclick="re()" >恢复存档</button><input value="如果导致存档丢失,概不负责" type="text" id="textId" name="cundang"></input>
-</div>
-
+  
 
   
 
