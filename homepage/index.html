@@ -24,7 +24,7 @@
 <meta property="og:description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: DodgerBlue;   border: none;   color: white;   text-align: center;   font-size: 10px;   padding: 10px;   width: 100px;   t">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T02:38:16.000Z">
-<meta property="article:modified_time" content="2022-09-10T12:57:43.977Z">
+<meta property="article:modified_time" content="2022-09-10T13:56:58.585Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -387,7 +387,8 @@ function copyToClip(content, message) {
     var coin=localStorage.getItem("coin");
     var status=localStorage.getItem("status");
     var called=localStorage.getItem("called");
-      var s=compileStr(user+'/'+coin+'/'+status+'/'+called+'/');
+    var todo=localStorage.getItem("todo");
+      var s=compileStr(user+'/'+coin+'/'+status+'/'+called+'/'+todo+'/');
     var aux = document.createElement("input"); 
     aux.setAttribute("value", s); 
     document.body.appendChild(aux); 
@@ -416,17 +417,19 @@ function re()
                         else if(cnt==1){cnt++;coin=Number(t);}
                         else if(cnt==2){cnt++;status=Number(t);}
                         else if(cnt==3){cnt++;called=t;}
+                        else if(cnt==4){cnt++;todo=t;}
                         t='';					
                 }
         }
         if(user!=null)
         {
-            var message='读取存档成功\n用户名为'+user+'\nRTC:'+coin+'\n用户状态:'+status+'\n称号:'+called;
+            var message='读取存档成功\n用户名为'+user+'\nRTC:'+coin+'\n用户状态:'+status+'\n称号:'+called+'ToDoList:'+todo;
             alert(message);
             setStorage("user",user);
             setStorage("coin",coin);
             setStorage("status",status);
             setStorage("called",called);
+            setStorage("todo",todo);
             alert("恢复成功,请刷新!")
         }
         else 
