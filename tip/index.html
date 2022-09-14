@@ -16,13 +16,15 @@
   <meta name="author" content="Mizuhara37">
   <meta name="keywords" content="">
   
-    <meta name="description" content="你好！">
+    <meta name="description" content="写下你要说的话">
 <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://mizuhara37.github.io/archives/2022/index.html">
+<meta property="og:title" content="留言板">
+<meta property="og:url" content="http://mizuhara37.github.io/tip/index.html">
 <meta property="og:site_name" content="Mizuhara37 Blog">
-<meta property="og:description" content="你好！">
+<meta property="og:description" content="写下你要说的话">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-14T10:09:22.000Z">
+<meta property="article:modified_time" content="2022-09-14T10:12:17.400Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -30,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>归档 - Mizuhara37 Blog</title>
+  <title>留言板 - Mizuhara37 Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -266,7 +268,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="归档"></span>
+            <span id="subtitle" data-typed-text="留言板"></span>
           
         </div>
 
@@ -306,29 +308,39 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 2 篇文章</p>
-  <hr>
+<article class="page-content">
+  <h3 id="写下你要说的话"><a href="#写下你要说的话" class="headerlink" title="写下你要说的话"></a>写下你要说的话</h3>
+
   
-  
+  <article id="comments" lazyload>
     
-      
-      <p class="h5">2022</p>
-    
-    <a href="/2022/09/05/%E5%8F%AF%E8%BE%BE%E9%B8%ADOnline%E5%8F%91%E5%B8%83%EF%BC%81/" class="list-group-item list-group-item-action">
-      <time>09-05</time>
-      <div class="list-group-item-title">Contrail Online发布！</div>
-    </a>
-  
-    
-    <a href="/2022/07/29/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/" class="list-group-item list-group-item-action">
-      <time>07-29</time>
-      <div class="list-group-item-title">学习与开发</div>
-    </a>
-  
-</div>
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"VOo3g6uzngvIQM2iWchkJnOr-gzGzoHsz","appKey":"v4SmL6Vip51um0u4FUAv3kOr","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
+  </article>
+
+
+</article>
 
 
 
