@@ -16,15 +16,15 @@
   <meta name="author" content="Mizuhara37">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Contrail Online,在线式的绝佳体验   function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;)   var day &#x3D; d.getDate();">
+    <meta name="description" content="Contrail Online,在线式的绝佳体验  function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;);   var d &#x3D; new Date();   var">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contrail 轨迹">
 <meta property="og:url" content="http://mizuhara37.github.io/contrail/index.html">
 <meta property="og:site_name" content="Mizuhara37 Blog">
-<meta property="og:description" content="Contrail Online,在线式的绝佳体验   function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;)   var day &#x3D; d.getDate();">
+<meta property="og:description" content="Contrail Online,在线式的绝佳体验  function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;);   var d &#x3D; new Date();   var">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-03T13:29:28.000Z">
-<meta property="article:modified_time" content="2022-09-10T14:36:57.718Z">
+<meta property="article:modified_time" content="2022-09-14T02:26:23.708Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -255,6 +255,19 @@
 
   <main>
     
+      <div id="left_layer" style="position:fixed; top:350px; right:30px;z-index:999">
+        <div id="sakana-widget"></div>
+        <script>
+          function initSakanaWidget() {
+            new SakanaWidget().mount('#sakana-widget');
+          }
+        </script>
+        <script
+          async
+          onload="initSakanaWidget()"
+          src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+        ></script>
+      </div>
       <div class="container nopadding-x-md">
         <div id="board"
           >
@@ -265,19 +278,22 @@
                 
 
 <article class="page-content">
-  <h3 id="Contrail-Online-在线式的绝佳体验"><a href="#Contrail-Online-在线式的绝佳体验" class="headerlink" title="Contrail Online,在线式的绝佳体验"></a>Contrail Online,在线式的绝佳体验</h3></head>
-<head>
+  <h3 id="Contrail-Online-在线式的绝佳体验"><a href="#Contrail-Online-在线式的绝佳体验" class="headerlink" title="Contrail Online,在线式的绝佳体验"></a>Contrail Online,在线式的绝佳体验</h3><head>
 <script>
 function setStorage(cname,cvalue){
      localStorage.setItem(cname,cvalue);
 }
 function checkStorage(){
-    var user=localStorage.getItem("user")
+    var user=localStorage.getItem("user");
+  var d = new Date();
   var day = d.getDate();
-    var now=localStorage.getItem("first");
-    if (user!="" && user!=null && first!=day){
-      alert(user + "，欢迎回来！");
-    first=now;
+  var now=localStorage.getItem("first");
+    if ((user!="" && user!=null)){
+    if(day!=now)
+    {
+          alert(user + "，欢迎回来！");
+        localStorage.setItem("first",day);
+    }
     }
     else {
         user = prompt("一定要记住你的用户名，如果要更改请联系管理员\n创建你的用户名:","");
@@ -407,19 +423,7 @@ function checkStorage(){
     
 
     
-  <div id="left_layer" style="position:fixed; top:350px; right:30px;">
-    <div id="sakana-widget"></div>
-    <script>
-      function initSakanaWidget() {
-        new SakanaWidget().mount('#sakana-widget');
-      }
-    </script>
-    <script
-      async
-      onload="initSakanaWidget()"
-      src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
-    ></script>
-  </div>
+  
   </main>
 
   <footer>

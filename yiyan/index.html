@@ -255,6 +255,19 @@
 
   <main>
     
+      <div id="left_layer" style="position:fixed; top:350px; right:30px;z-index:999">
+        <div id="sakana-widget"></div>
+        <script>
+          function initSakanaWidget() {
+            new SakanaWidget().mount('#sakana-widget');
+          }
+        </script>
+        <script
+          async
+          onload="initSakanaWidget()"
+          src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+        ></script>
+      </div>
       <div class="container nopadding-x-md">
         <div id="board"
           >
@@ -367,19 +380,7 @@
     
 
     
-  <div id="left_layer" style="position:fixed; top:350px; right:30px;">
-    <div id="sakana-widget"></div>
-    <script>
-      function initSakanaWidget() {
-        new SakanaWidget().mount('#sakana-widget');
-      }
-    </script>
-    <script
-      async
-      onload="initSakanaWidget()"
-      src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
-    ></script>
-  </div>
+  
   </main>
 
   <footer>
