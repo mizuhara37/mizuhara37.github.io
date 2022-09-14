@@ -24,7 +24,7 @@
 <meta property="og:description" content=".button {   display: inline-block;   border-radius: 12px;   background-color: DodgerBlue;   border: none;   color: white;   text-align: center;   font-size: 10px;   padding: 10px;   width: 100px;   t">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-04T02:38:16.000Z">
-<meta property="article:modified_time" content="2022-09-10T13:56:58.585Z">
+<meta property="article:modified_time" content="2022-09-14T03:14:04.577Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -376,6 +376,11 @@
     .right{text-align: right;}
     .left{text-align : left;}
     .box1{text-align : right;}
+    .image{ 
+        width:300px; 
+        height:300px; 
+        border-radius:200px; 
+    }
 </style>
 <script>
     // 字符串加密构造函数
@@ -507,7 +512,7 @@ function checkStorage(){
     
 <body onload="checkStorage()"></body>
 <div class="txt1">
-<img id='head'></img>
+<img id='head' class="image"></img>
 <script>
     var demo=document.getElementById("head");
         var id = localStorage.getItem("id");
