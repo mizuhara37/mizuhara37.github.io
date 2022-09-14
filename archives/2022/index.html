@@ -326,6 +326,19 @@
     
 
     
+  <div id="left_layer" style="position:fixed; top:350px; right:30px;">
+    <div id="sakana-widget"></div>
+    <script>
+      function initSakanaWidget() {
+        new SakanaWidget().mount('#sakana-widget');
+      }
+    </script>
+    <script
+      async
+      onload="initSakanaWidget()"
+      src="https://cdn.jsdelivr.net/npm/sakana-widget@2.2.2/lib/sakana.min.js"
+    ></script>
+  </div>
   </main>
 
   <footer>
@@ -403,5 +416,8 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+  
+ 
+
 </body>
 </html>
