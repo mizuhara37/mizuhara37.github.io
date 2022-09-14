@@ -16,15 +16,15 @@
   <meta name="author" content="Mizuhara37">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Contrail Online,在线式的绝佳体验  function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;);   var d &#x3D; new Date();   var">
+    <meta name="description" content="这一次会使用10个RTC                    Title                      body{                 background: url(&quot;bg.jpg&quot;) no-repeat;                 background-size: 100%;             }             #box{">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contrail 轨迹">
-<meta property="og:url" content="http://mizuhara37.github.io/contrail/index.html">
+<meta property="og:title" content="抽奖">
+<meta property="og:url" content="http://mizuhara37.github.io/cj/index.html">
 <meta property="og:site_name" content="Mizuhara37 Blog">
-<meta property="og:description" content="Contrail Online,在线式的绝佳体验  function setStorage(cname,cvalue){      localStorage.setItem(cname,cvalue); } function checkStorage(){     var user&#x3D;localStorage.getItem(&quot;user&quot;);   var d &#x3D; new Date();   var">
+<meta property="og:description" content="这一次会使用10个RTC                    Title                      body{                 background: url(&quot;bg.jpg&quot;) no-repeat;                 background-size: 100%;             }             #box{">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-03T13:29:28.000Z">
-<meta property="article:modified_time" content="2022-09-14T11:21:08.126Z">
+<meta property="article:published_time" content="2022-09-14T11:09:55.000Z">
+<meta property="article:modified_time" content="2022-09-14T11:20:42.474Z">
 <meta property="article:author" content="Mizuhara37">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Contrail 轨迹 - Mizuhara37 Blog</title>
+  <title>抽奖 - Mizuhara37 Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -268,7 +268,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Contrail 轨迹"></span>
+            <span id="subtitle" data-typed-text="抽奖"></span>
           
         </div>
 
@@ -309,107 +309,89 @@
                 
 
 <article class="page-content">
-  <h3 id="Contrail-Online-在线式的绝佳体验"><a href="#Contrail-Online-在线式的绝佳体验" class="headerlink" title="Contrail Online,在线式的绝佳体验"></a>Contrail Online,在线式的绝佳体验</h3><head>
-<script>
-function setStorage(cname,cvalue){
+  <h3 id="这一次会使用10个RTC"><a href="#这一次会使用10个RTC" class="headerlink" title="这一次会使用10个RTC"></a>这一次会使用10个RTC</h3>  <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body{
+                background: url("bg.jpg") no-repeat;
+                background-size: 100%;
+            }
+            #box{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -300px 0 0 -300px;
+                width: 600px;
+                height: 300px;
+                line-height: 300px;
+                text-align: center;
+                font-size: 3em;
+                color: rgba(201, 57, 57, 0.8);
+                border-radius: 10px;
+            }
+            h1{
+                text-align: center;
+                color: #eee;
+                letter-spacing: 10px;
+            }
+            #btn{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 200px;
+                height: 50px;
+                font-size: 1.2em;
+                margin: 100px 0 0 -100px;
+                background: rgb(43, 47, 49);
+                border: aqua;
+                border-radius: 15px;
+                color: rgb(255, 255, 255);
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+         <button id="btn">抽奖<button>
+        <div id="box">
+        </div>
+        <script>
+            var l;
+            let arr = ["+50","无","+50","无","无","无","+100","无","+50","无","+50","无","无","+200","无","无","无","无","无","无"];
+            function setStorage(cname,cvalue){
      localStorage.setItem(cname,cvalue);
 }
-function checkStorage(){
-    var user=localStorage.getItem("user");
-  var d = new Date();
-  var day = d.getDate();
-  var now=localStorage.getItem("first");
-    if ((user!="" && user!=null)){
-    if(day!=now)
-    {
-          alert(user + "，欢迎回来！");
-        localStorage.setItem("first",day);
-    }
-    }
-    else {
-        user = prompt("一定要记住你的用户名，如果要更改请联系管理员\n创建你的用户名:","");
-          if (user!="" && user!=null){
-        setStorage("user",user);
-        setStorage("coin",0);
-        setStorage("status",0);
-        setStorage("called","无");
-        setStorage("id","");
-        }
-    }
-}
-</script>
-</head>
-    
-<body onload="checkStorage()"></body>
-<br>
-<br>
-<style>
-.button {
-  display: inline-block;
-  border-radius: 12px;
-  background-color: grey;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-.button span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-.button:hover span {
-  padding-right: 25px;
-}
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
-</head>
-<body>
-
-<a href='/qiandao'>
-<button class="button" style="vertical-align:middle"><span>签到</span></button>
-</a>
-<a href='/yiyan/'>
-<button class="button" style="vertical-align:middle"><span>一言</span></button>
-</a>
-<a href='/todo/'>
-<button class="button" style="vertical-align:middle"><span>番茄钟</span></button>
-</a>
-<a href='/stjdb/'>
-<button class="button" style="vertical-align:middle"><span>猜拳</span></button>
-</a>
-<a href='/cheat/'>
-<button class="button" style="vertical-align:middle"><span>骗我</span></button>
-</a>
-<a href='/badapple/'>
-<button class="button" style="vertical-align:middle"><span>BadApple</span></button>
-</a>
-<a href='/cj/'>
-<button class="button" style="vertical-align:middle"><span>抽奖</span></button>
-</a>
-<a href='/homepage/'>
-<button class="button" style="vertical-align:middle"><span>我的</span></button>
-</a>
-<a href='/hall/'>
-<button class="button" style="vertical-align:middle"><span>大厅</span></button>
-</a>
+            function extruct(){
+                if(arr.length == 0) {
+                    document.getElementById('box').innerText="抽奖结束";
+                    return;
+                }
+                let index = parseInt(Math.random() * arr.length);
+                let lucker = arr[index];
+                arr.splice(index,1);
+                document.getElementById('box').innerText = lucker;
+                var coin =Number(localStorage.getItem("coin")); 
+                coin=coin-10;
+                if(lucker=='+50') coin=coin+50;
+                else if(lucker=='+100') coin=coin+100;
+                else if(lucker=='+200') coin=coin+200;
+                setStorage("coin",coin);
+            }
+            let start = false;
+            document.getElementById('btn').addEventListener('click',function (){
+                if (start){
+                    clearInterval(flag);
+                    extruct();
+                } else {
+                    flag = setInterval(function (){
+                        document.getElementById('box').innerText = arr[parseInt(Math.random() * arr.length)];
+                    },10)
+                }
+                start = !start;
+            })
+        </script>
+    </body>
+<html>
 
 
 
