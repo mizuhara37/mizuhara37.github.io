@@ -21,13 +21,31 @@
   <entry>
     <title>Ave Mujica OP 自用</title>
     <url>/2025/02/04/AveMujicaOpening/</url>
-    <content><![CDATA[<p><video src="https://v.06dn.com/api/v3/slave/source/0/L3VwbG9hZHMvMjc3NTgvMjAyNTAyLzA0LzI3NzU4X081alVlZ2pjX2F2ZW11amljYS5tcDQ/avemujica.mp4?sign=k3HziIQVSqlp8iFO_wMf7_Qen43kaFtEBDOSCiNH4nA%3D%3A1738690155" controls></video></p>
+    <content><![CDATA[<p><video src="https://www.12339.gov.cn/preview/20250211_eb5848cb62_jubao.mp4" controls></video></p>
 ]]></content>
       <tags>
         <tag>音乐</tag>
         <tag>喜爱</tag>
         <tag>动漫</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>【22年遠古傻子文章】来自Mizuhara37的文章-学习与开发</title>
+    <url>/2022/08/06/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p>欢迎来到我的Blog，这是我的第一篇文章，我们来讲一讲我的 学习进程 和 项目开发进程 。</p>
+<h2 id="学习进程"><a href="#学习进程" class="headerlink" title="学习进程"></a>学习进程</h2><h3 id="网络学习"><a href="#网络学习" class="headerlink" title="网络学习"></a>网络学习</h3><p>我初步的学习了HTML和Hexo博客项目。相比较下，Hexo可能比较简单。</p>
+<p>在文章创建文章方面，Hexo只需要：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>十分的简单，然而对于HTML来说，在我的认知范围内，先要做个HTML模板，在重新创建一个html文件，用超链接去href到html。</p>
+<p>对于模板的修改，Hexo更加的整洁。Hexo只要修改“_config.yml”内的内容,还有theme主题里的”_config.yml”的内容,非常的简单。对于界面的修改的话，hexo更加的简单，例如：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">about : /about</span><br><span class="line">...</span><br><span class="line">只要修改为   关于 : /about</span><br></pre></td></tr></table></figure></div>
+<p>然而html,需要修改 a标签 或者 p标签 的内容,在一大堆代码中修改,是很凌乱的.</p>
+<p>不仅能如此,hexo的部署也十分的简单,有专门部署的命令</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
+<p>还有我认为hexo的最好的一点就是文章利用Markdown的格式,很实用,很便捷.</p>
+<h2 id="Javascript-学习"><a href="#Javascript-学习" class="headerlink" title="Javascript 学习"></a>Javascript 学习</h2><p>为了能够完善QQ群的机器人功能,我学习了Javascript,发现在很多的语法与C++有相似的地方,这对于我的JS学习更加简单化,不管是”for””if”等都是和C++相同的。还有Javascript的变量的定义，只要一个 var 变量名称 就可以用了。</p>
+<h2 id="项目开发进程"><a href="#项目开发进程" class="headerlink" title="项目开发进程"></a>项目开发进程</h2><p>暂无</p>
+<h2 id="真覺得以前的自己好傻。。。。"><a href="#真覺得以前的自己好傻。。。。" class="headerlink" title="真覺得以前的自己好傻。。。。"></a>真覺得以前的自己好傻。。。。</h2>]]></content>
   </entry>
   <entry>
     <title>【B站】祝福 TV size 术力口投稿</title>
