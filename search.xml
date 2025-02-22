@@ -1,71 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【B站】モニタリング O_o 与 一些小记</title>
-    <url>/2025/01/24/monitor/</url>
-    <content><![CDATA[<div class="tabs" id="tab-first-unique-name"><ul class="nav-tabs"><li class="tab active"><a class="#first-unique-name-1">Bilibili</a></li><li class="tab"><a class="#first-unique-name-2">YouTube</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113881326292683&bvid=BV18hfJY8EsP&cid=28047247207&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe></div><div class="tab-pane" id="first-unique-name-2"><iframe width="560" height="315" src="https://www.youtube.com/embed/athX0Wyw2WQ?si=F0Uh7W8LoxJ3zSNq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe></div></div></div>
-
-<br>
-
-<h3 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h3><p>突然对初音未来特别感兴趣了。去年暑假的时候做了艾莲的不知醉，发了b站马上又删了，因为实在是做得很烂。这次至少看着舒服，虽然是随便做做的，但是比上次好太多了。</p>
-<p>上传以后才发现有好多穿模的，还有一些阴间打光，那也没办法了。我不想再花个一两个小时渲染压制。</p>
-<p>モニタリング确实是DECO*27最近最好听的歌了。</p>
-<h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>Model:YYB|翁德兰黑心厂长<br>Stage:H2CU阿相|licis 墨诺<br>Camera:絢姫<br>Motion:絢姫<br>Music:モニタリング feat. 初音ミク - DECO*27<br>MME:A-Toon2_v1.11,Diffusion7,ikClut_改变_Wuu,LightBloom-1.1.1,PAToon2.98b,空中に漂う埃<br>Tool:MikuMikuDance,Adobe Premiere Pro</p>
-]]></content>
-      <tags>
-        <tag>术力口</tag>
-        <tag>音乐</tag>
-        <tag>MMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ave Mujica OP 自用</title>
-    <url>/2025/02/04/AveMujicaOpening/</url>
-    <content><![CDATA[<p><video src="https://www.12339.gov.cn/preview/20250211_eb5848cb62_jubao.mp4" controls></video></p>
-]]></content>
-      <tags>
-        <tag>音乐</tag>
-        <tag>喜爱</tag>
-        <tag>动漫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【22年遠古傻子文章】来自Mizuhara37的文章-学习与开发</title>
-    <url>/2022/08/06/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<p>欢迎来到我的Blog，这是我的第一篇文章，我们来讲一讲我的 学习进程 和 项目开发进程 。</p>
-<h2 id="学习进程"><a href="#学习进程" class="headerlink" title="学习进程"></a>学习进程</h2><h3 id="网络学习"><a href="#网络学习" class="headerlink" title="网络学习"></a>网络学习</h3><p>我初步的学习了HTML和Hexo博客项目。相比较下，Hexo可能比较简单。</p>
-<p>在文章创建文章方面，Hexo只需要：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-<p>十分的简单，然而对于HTML来说，在我的认知范围内，先要做个HTML模板，在重新创建一个html文件，用超链接去href到html。</p>
-<p>对于模板的修改，Hexo更加的整洁。Hexo只要修改“_config.yml”内的内容,还有theme主题里的”_config.yml”的内容,非常的简单。对于界面的修改的话，hexo更加的简单，例如：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">about : /about</span><br><span class="line">...</span><br><span class="line">只要修改为   关于 : /about</span><br></pre></td></tr></table></figure></div>
-<p>然而html,需要修改 a标签 或者 p标签 的内容,在一大堆代码中修改,是很凌乱的.</p>
-<p>不仅能如此,hexo的部署也十分的简单,有专门部署的命令</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
-<p>还有我认为hexo的最好的一点就是文章利用Markdown的格式,很实用,很便捷.</p>
-<h2 id="Javascript-学习"><a href="#Javascript-学习" class="headerlink" title="Javascript 学习"></a>Javascript 学习</h2><p>为了能够完善QQ群的机器人功能,我学习了Javascript,发现在很多的语法与C++有相似的地方,这对于我的JS学习更加简单化,不管是”for””if”等都是和C++相同的。还有Javascript的变量的定义，只要一个 var 变量名称 就可以用了。</p>
-<h2 id="项目开发进程"><a href="#项目开发进程" class="headerlink" title="项目开发进程"></a>项目开发进程</h2><p>暂无</p>
-<h2 id="真覺得以前的自己好傻。。。。"><a href="#真覺得以前的自己好傻。。。。" class="headerlink" title="真覺得以前的自己好傻。。。。"></a>真覺得以前的自己好傻。。。。</h2>]]></content>
-  </entry>
-  <entry>
-    <title>【B站】祝福 TV size 术力口投稿</title>
-    <url>/2023/08/04/zhufu/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=829202994&bvid=BV1fu4y1y7Ek&cid=1218207486&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
-      <tags>
-        <tag>术力口,音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【B站】[AI初音ミク] 影色舞/Silhouette Dance - MyGO!!!!!</title>
-    <url>/2024/08/28/%E5%BD%B1%E8%89%B2%E8%88%9E/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113034664150895&bvid=BV1XSs4eDEEG&cid=25608392532&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
-      <tags>
-        <tag>术力口</tag>
-        <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【JapanTrave】日本旅行的方案参考（（ --- 方案一</title>
+    <title>【JapanTravel】日本旅行的方案参考（（ --- 方案一</title>
     <url>/2025/02/12/JapanTravel01/</url>
     <content><![CDATA[<h5 id="码字真的好累。。"><a href="#码字真的好累。。" class="headerlink" title="码字真的好累。。"></a>码字真的好累。。</h5><h5 id="这个方案可能比较昂贵，并且会很累"><a href="#这个方案可能比较昂贵，并且会很累" class="headerlink" title="这个方案可能比较昂贵，并且会很累"></a>这个方案可能比较昂贵，并且会很累</h5><h1 id="方案一：日本-7-10日计划"><a href="#方案一：日本-7-10日计划" class="headerlink" title="方案一：日本 7-10日计划"></a>方案一：日本 7-10日计划</h1><h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h2><p>1.护照在高考完后一定马上办完，因为加上出签时间这个要耗费大概一个月吧。高考完6月10号差不多。在出成绩填志愿前反正不能去，这个也是办护照和签证的最好时机</p>
 <p>2.考完试马上和父母沟通 7月和同学要去日本玩</p>
@@ -105,5 +41,88 @@
       <tags>
         <tag>JapanTravel</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Ave Mujica OP 自用</title>
+    <url>/2025/02/04/AveMujicaOpening/</url>
+    <content><![CDATA[<p><video src="https://www.12339.gov.cn/preview/20250211_eb5848cb62_jubao.mp4" controls></video></p>
+]]></content>
+      <tags>
+        <tag>喜爱</tag>
+        <tag>音乐</tag>
+        <tag>动漫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【B站】モニタリング O_o 与 一些小记</title>
+    <url>/2025/01/24/monitor/</url>
+    <content><![CDATA[<div class="tabs" id="tab-first-unique-name"><ul class="nav-tabs"><li class="tab active"><a class="#first-unique-name-1">Bilibili</a></li><li class="tab"><a class="#first-unique-name-2">YouTube</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113881326292683&bvid=BV18hfJY8EsP&cid=28047247207&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe></div><div class="tab-pane" id="first-unique-name-2"><iframe width="560" height="315" src="https://www.youtube.com/embed/athX0Wyw2WQ?si=F0Uh7W8LoxJ3zSNq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen ></iframe></div></div></div>
+
+<br>
+
+<h3 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h3><p>突然对初音未来特别感兴趣了。去年暑假的时候做了艾莲的不知醉，发了b站马上又删了，因为实在是做得很烂。这次至少看着舒服，虽然是随便做做的，但是比上次好太多了。</p>
+<p>上传以后才发现有好多穿模的，还有一些阴间打光，那也没办法了。我不想再花个一两个小时渲染压制。</p>
+<p>モニタリング确实是DECO*27最近最好听的歌了。</p>
+<h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>Model:YYB|翁德兰黑心厂长<br>Stage:H2CU阿相|licis 墨诺<br>Camera:絢姫<br>Motion:絢姫<br>Music:モニタリング feat. 初音ミク - DECO*27<br>MME:A-Toon2_v1.11,Diffusion7,ikClut_改变_Wuu,LightBloom-1.1.1,PAToon2.98b,空中に漂う埃<br>Tool:MikuMikuDance,Adobe Premiere Pro</p>
+]]></content>
+      <tags>
+        <tag>音乐</tag>
+        <tag>术力口</tag>
+        <tag>MMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>X（Twitter）个人精选</title>
+    <url>/2000/01/01/tweets/</url>
+    <content><![CDATA[<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1887163389199495374" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1887149836958593105" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1885209947010691468" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1881638614720999918" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1881638234134098011" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1835269463610192063" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1833156330292380137" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1827023175814959456" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1826925723678097610" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1807084403463778311" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1804561644821127573" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="twitter-wrapper"><blockquote class="twitter-tweet"><a class="link"   href="https://twitter.com/Mizuhara37/status/1799499170866516196" ><i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></blockquote></div><script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>【B站】祝福 TV size 术力口投稿</title>
+    <url>/2023/08/04/zhufu/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=829202994&bvid=BV1fu4y1y7Ek&cid=1218207486&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
+      <tags>
+        <tag>术力口,音乐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【B站】[AI初音ミク] 影色舞/Silhouette Dance - MyGO!!!!!</title>
+    <url>/2024/08/28/%E5%BD%B1%E8%89%B2%E8%88%9E/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113034664150895&bvid=BV1XSs4eDEEG&cid=25608392532&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
+      <tags>
+        <tag>音乐</tag>
+        <tag>术力口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【22年遠古傻子文章】来自Mizuhara37的文章-学习与开发</title>
+    <url>/2022/08/06/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p>欢迎来到我的Blog，这是我的第一篇文章，我们来讲一讲我的 学习进程 和 项目开发进程 。</p>
+<h2 id="学习进程"><a href="#学习进程" class="headerlink" title="学习进程"></a>学习进程</h2><h3 id="网络学习"><a href="#网络学习" class="headerlink" title="网络学习"></a>网络学习</h3><p>我初步的学习了HTML和Hexo博客项目。相比较下，Hexo可能比较简单。</p>
+<p>在文章创建文章方面，Hexo只需要：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>十分的简单，然而对于HTML来说，在我的认知范围内，先要做个HTML模板，在重新创建一个html文件，用超链接去href到html。</p>
+<p>对于模板的修改，Hexo更加的整洁。Hexo只要修改“_config.yml”内的内容,还有theme主题里的”_config.yml”的内容,非常的简单。对于界面的修改的话，hexo更加的简单，例如：</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">about : /about</span><br><span class="line">...</span><br><span class="line">只要修改为   关于 : /about</span><br></pre></td></tr></table></figure></div>
+<p>然而html,需要修改 a标签 或者 p标签 的内容,在一大堆代码中修改,是很凌乱的.</p>
+<p>不仅能如此,hexo的部署也十分的简单,有专门部署的命令</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></div>
+<p>还有我认为hexo的最好的一点就是文章利用Markdown的格式,很实用,很便捷.</p>
+<h2 id="Javascript-学习"><a href="#Javascript-学习" class="headerlink" title="Javascript 学习"></a>Javascript 学习</h2><p>为了能够完善QQ群的机器人功能,我学习了Javascript,发现在很多的语法与C++有相似的地方,这对于我的JS学习更加简单化,不管是”for””if”等都是和C++相同的。还有Javascript的变量的定义，只要一个 var 变量名称 就可以用了。</p>
+<h2 id="项目开发进程"><a href="#项目开发进程" class="headerlink" title="项目开发进程"></a>项目开发进程</h2><p>暂无</p>
+<h2 id="真覺得以前的自己好傻。。。。"><a href="#真覺得以前的自己好傻。。。。" class="headerlink" title="真覺得以前的自己好傻。。。。"></a>真覺得以前的自己好傻。。。。</h2>]]></content>
   </entry>
 </search>
