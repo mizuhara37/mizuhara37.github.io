@@ -3,10 +3,17 @@
   <entry>
     <title>我对动画《Ave Mujica》的评价</title>
     <url>/2025/04/04/AveMujica/</url>
-    <content><![CDATA[<h5 align="middle">请把博客颜色改为暗色，谢谢！</h5>
+    <content><![CDATA[<h5 align="middle">（Mujica特供网页样式）</h5>
 <h5 align="middle">以下均为我个人看法，请勿较真，要尊重他人的看法</h5>
 <h5 align="middle">省流：9.7/10，最好的原创动漫，但被自媒体与跟风所害</h5>
+<hr>
 
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="../../../../img/avemujica_post.jpg"
+                      align="middle" 
+                >
 <img  
                      lazyload
                      src="/images/loading.svg"
@@ -14,26 +21,134 @@
                       align="middle" 
                 >
 
-<td style="text-align: left; padding: 1em; vertical-align: middle;"><span style="font-size: 28px;"><b><center><span lang="ja"><span style="color:#881144;">…ようこそ。Ave Mujicaの<ruby><rb data-id="template-ruby">世界<span class="template-ruby-hidden"></span></rb><rt style="font-size:0.75em">マスカレード</rt><span class="template-ruby-hidden"></span></ruby>へ</span></span></center></b>
-<hr>
-<b><center><span style="color:#881144;">...欢迎来到Ave Mujica的<ruby><rb data-id="template-ruby">世界<span class="template-ruby-hidden">（</span></rb><rt style="font-size:0.75em">假面舞会</rt><span class="template-ruby-hidden">）</span></ruby></span></center></b></span> </td>
 
-<p><button type="button" onclick="var obj = document.getElementById('dark-mode');obj.style.background-color= 'black';" >6666</button></p>
-]]></content>
+<td style="text-align: left; padding: 1em; vertical-align: middle;"><span style="font-size: 28px;"><b><center><span lang="ja"><span style="color:#881144;">…ようこそ。Ave Mujicaの<ruby><rb data-id="template-ruby">世界<span class="template-ruby-hidden"></span></rb><rt style="font-size:0.75em">マスカレード</rt><span class="template-ruby-hidden"></span></ruby>へ</span></span></center></b>
+
+<p><b><center><span style="color:#881144;">…欢迎来到Ave Mujica的<ruby><rb data-id="template-ruby">世界<span class="template-ruby-hidden">（</span></rb><rt style="font-size:0.75em">假面舞会</rt><span class="template-ruby-hidden">）</span></ruby></span></center></b></span> </td></p>
+<style>
+    .dark-mode{
+    --background-color: #000000ff;
+    --background-color-transparent: rgba(32,33,36,0.4);
+    --background-color-transparent-15: rgba(32,33,36,0.15);
+    --background-color-transparent-40: rgba(32,33,36,0.4);
+    --background-color-transparent-80: rgba(32,33,36,0.8);
+    --second-background-color: #242529;
+    --third-background-color: #292b2f;
+    --third-background-color-transparent: rgba(32,33,36,0.6);
+    --primary-color: #2875c7;
+    --first-text-color: #d2d2d7;
+    --second-text-color: #d1cbcbff;
+    --third-text-color: #9595a2;
+    --fourth-text-color: #36363e;
+    --default-text-color: #bebec6;
+    --invert-text-color: #373d3f;
+    --border-color: rgba(255,255,255,0.08);
+    --selection-color: #3482d6;
+    --shadow-color-1: rgba(255,255,255,0.08);
+    --shadow-color-2: rgba(255,255,255,0.05);
+    --shadow-hover-color: rgba(69,69,69,0.28);
+    --scrollbar-color: #898989;
+    --scrollbar-color-hover: #a1a1a1;
+    --scroll-bar-bg-color: #2a2c30;
+    --link-color: #c5c5cc;
+    --copyright-info-color: #a30029;
+    --avatar-background-color: #005cb8;
+    --pjax-progress-bar-color: linear-gradient(45deg, #ea404a, #ea722f, #e9a71f, #67e559, #18ecec, #1b85f1, #ee1dee);
+    --archive-timeline-last-child-color: linear-gradient(to bottom, #323232 60%, rgba(255,255,255,0) 100%) 1 100%;
+    --note-blue-title-bg: #1e3e46;
+    --note-red-title-bg: #4e1e1e;
+    --note-cyan-title-bg: #1e4e4e;
+    --note-green-title-bg: #1e4e1e;
+    --note-yellow-title-bg: #4e4e1e;
+    --note-gray-title-bg: #4e4e4e;
+    --note-type-title-bg: #4e3a1e;
+    --note-black-title-bg: #1e1e1e;
+    --note-purple-title-bg: #4e1e4e;
+    --home-banner-text-color: #fff;
+    --home-banner-icons-container-border-color: rgba(197,197,197,0.35);
+    --home-banner-icons-container-background-color: rgba(197,197,197,0.3);
+    --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --mermaid-theme: $dark-mermaid-theme;
+    }
+    .light-mode{
+    --background-color: #000000ff;
+    --background-color-transparent: rgba(32,33,36,0.4);
+    --background-color-transparent-15: rgba(32,33,36,0.15);
+    --background-color-transparent-40: rgba(32,33,36,0.4);
+    --background-color-transparent-80: rgba(32,33,36,0.8);
+    --second-background-color: #242529;
+    --third-background-color: #292b2f;
+    --third-background-color-transparent: rgba(32,33,36,0.6);
+    --primary-color: #2875c7;
+    --first-text-color: #d2d2d7;
+    --second-text-color: #d1cbcbff;
+    --third-text-color: #9595a2;
+    --fourth-text-color: #36363e;
+    --default-text-color: #bebec6;
+    --invert-text-color: #373d3f;
+    --border-color: rgba(255,255,255,0.08);
+    --selection-color: #3482d6;
+    --shadow-color-1: rgba(255,255,255,0.08);
+    --shadow-color-2: rgba(255,255,255,0.05);
+    --shadow-hover-color: rgba(69,69,69,0.28);
+    --scrollbar-color: #898989;
+    --scrollbar-color-hover: #a1a1a1;
+    --scroll-bar-bg-color: #2a2c30;
+    --link-color: #c5c5cc;
+    --copyright-info-color: #a30029;
+    --avatar-background-color: #005cb8;
+    --pjax-progress-bar-color: linear-gradient(45deg, #ea404a, #ea722f, #e9a71f, #67e559, #18ecec, #1b85f1, #ee1dee);
+    --archive-timeline-last-child-color: linear-gradient(to bottom, #323232 60%, rgba(255,255,255,0) 100%) 1 100%;
+    --note-blue-title-bg: #1e3e46;
+    --note-red-title-bg: #4e1e1e;
+    --note-cyan-title-bg: #1e4e4e;
+    --note-green-title-bg: #1e4e1e;
+    --note-yellow-title-bg: #4e4e1e;
+    --note-gray-title-bg: #4e4e4e;
+    --note-type-title-bg: #4e3a1e;
+    --note-black-title-bg: #1e1e1e;
+    --note-purple-title-bg: #4e1e4e;
+    --home-banner-text-color: #fff;
+    --home-banner-icons-container-border-color: rgba(197,197,197,0.35);
+    --home-banner-icons-container-background-color: rgba(197,197,197,0.3);
+    --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-hover: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --redefine-box-shadow-flat: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
+    --redefine-box-shadow-flat-hover: var(--shadow-color-2) 0px 1px 4px 0px, var(--shadow-color-1) 0px 0px 0px 1px, var(--shadow-color-1) 0px 0px 0px 1px inset;
+    --mermaid-theme: $dark-mermaid-theme;
+    }
+     .article-copyright-info-container {
+    font-family: 'Geist Variable', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Heiti SC', 'WenQuanYi Micro Hei', sans-serif;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 6px;
+    font-size: 1rem;
+    background: #531212;
+    border-radius: 14px;
+    border: 1px solid var(--shadow-color-1);
+    }
+    .wl-btn.primary {
+    border-color: var(--waline-theme-color);
+    background: #c72828;
+    color: #ffffff;
+}
+.page-container .main-content-container .main-content-body {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 38px 0;
+    background-image: url("../../../../../img/mujica_bg.png")
+}
+</style>]]></content>
       <tags>
         <tag>Anime</tag>
         <tag>BanG Dream!</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>JapanTravel2WithLive</title>
-    <url>/2025/08/04/JapanTravel2WithLive/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>LiveYaru</title>
-    <url>/2025/08/04/LiveYaru/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>【JapanTravel】日本旅行的方案参考（（ --- 方案一</title>
@@ -78,6 +193,30 @@
       </tags>
   </entry>
   <entry>
+    <title>【B站】仓田真白MMD SOS</title>
+    <url>/2025/07/13/MashiroSOS/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114844925692491&bvid=BV1W9uFzUEmj&cid=31014521538&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+
+<h3 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h3><p>谁知道之后十几天内会发生这么多事情的？小白和进藤天音是绑定的，开Live在最后的自我介绍之前天音就是小白。</p>
+<p>虽然本来挺喜欢Liyuu和进藤天音，但是现在吧。。。比较难说。</p>
+<p>SOS这首歌是进藤天音挺喜欢的一首歌，所以我才有做这个MMD的想法</p>
+<p>这次舞台搞了好久，先是在YT上找到了原文件，但没告诉我要咋加视频上去，就说了要一个解码器。反正摸索了挺久。</p>
+<h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>Model:Bushiroad|AnyaJackal|<br>Stage:wld3442th|Project Sekai<br>Camera:anonRipper<br>Motion:anonRipper<br>Music:SOS - 黛 冬优子（CV：幸村恵理）<br>MME:A-Toon2_v1.11,LightBloom-1.1.1,screen<br>Tool:MikuMikuDance,Adobe Premiere Pro</p>
+]]></content>
+      <tags>
+        <tag>音乐</tag>
+        <tag>MMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【JapanTravel】日本旅行并现地Live方案</title>
+    <url>/2025/08/04/JapanTravel2WithLive/</url>
+    <content><![CDATA[<h1 id="我会尽可能达到这个方案"><a href="#我会尽可能达到这个方案" class="headerlink" title="我会尽可能达到这个方案"></a>我会尽可能达到这个方案</h1>]]></content>
+      <tags>
+        <tag>JapanTravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【B站】モニタリング O_o 与 一些小记</title>
     <url>/2025/01/24/monitor/</url>
     <content><![CDATA[<!-- tab Bilibili-->
@@ -90,21 +229,16 @@
 <!-- endtab -->
 <br>
 
-<h3 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h3><p>突然对初音未来特别感兴趣了。去年暑假的时候做了艾莲的不知醉，发了b站马上又删了，因为实在是做得很烂。这次至少看着舒服，虽然是随便做做的，但是比上次好太多了。</p>
+<h3 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h3><p>突然对初音未来的MMD特别感兴趣了。去年暑假的时候做了艾莲的不知醉，发了b站马上又删了，因为实在是做得很烂。这次至少看着舒服，虽然是随便做做的，但是比上次好太多了。</p>
 <p>上传以后才发现有好多穿模的，还有一些阴间打光，那也没办法了。我不想再花个一两个小时渲染压制。</p>
 <p>モニタリング确实是DECO*27最近最好听的歌了。</p>
 <h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>Model:YYB|翁德兰黑心厂长<br>Stage:H2CU阿相|licis 墨诺<br>Camera:絢姫<br>Motion:絢姫<br>Music:モニタリング feat. 初音ミク - DECO*27<br>MME:A-Toon2_v1.11,Diffusion7,ikClut_改变_Wuu,LightBloom-1.1.1,PAToon2.98b,空中に漂う埃<br>Tool:MikuMikuDance,Adobe Premiere Pro</p>
 ]]></content>
       <tags>
-        <tag>术力口</tag>
         <tag>音乐</tag>
         <tag>MMD</tag>
+        <tag>术力口</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MashiroSOS</title>
-    <url>/2025/08/04/MashiroSOS/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>X（Twitter）个人精选</title>
@@ -156,8 +290,8 @@
     <url>/2024/08/28/%E5%BD%B1%E8%89%B2%E8%88%9E/</url>
     <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113034664150895&bvid=BV1XSs4eDEEG&cid=25608392532&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
       <tags>
-        <tag>术力口</tag>
         <tag>音乐</tag>
+        <tag>术力口</tag>
       </tags>
   </entry>
 </search>
