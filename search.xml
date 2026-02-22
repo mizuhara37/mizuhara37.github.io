@@ -396,6 +396,15 @@ a {
       </tags>
   </entry>
   <entry>
+    <title>【B站】[AI初音ミク] 影色舞/Silhouette Dance - MyGO!!!!!</title>
+    <url>/2024/08/28/%E5%BD%B1%E8%89%B2%E8%88%9E/</url>
+    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113034664150895&bvid=BV1XSs4eDEEG&cid=25608392532&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
+      <tags>
+        <tag>音乐</tag>
+        <tag>术力口</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【22年遠古傻子文章】来自Mizuhara37的文章-学习与开发</title>
     <url>/2022/08/06/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<p>欢迎来到我的Blog，这是我的第一篇文章，我们来讲一讲我的 学习进程 和 项目开发进程 。</p>
@@ -412,14 +421,5 @@ a {
 <h2 id="Javascript-学习"><a href="#Javascript-学习" class="headerlink" title="Javascript 学习"></a>Javascript 学习</h2><p>为了能够完善QQ群的机器人功能,我学习了Javascript,发现在很多的语法与C++有相似的地方,这对于我的JS学习更加简单化,不管是”for””if”等都是和C++相同的。还有Javascript的变量的定义，只要一个 var 变量名称 就可以用了。</p>
 <h2 id="项目开发进程"><a href="#项目开发进程" class="headerlink" title="项目开发进程"></a>项目开发进程</h2><p>暂无</p>
 <h2 id="真覺得以前的自己好傻。。。。"><a href="#真覺得以前的自己好傻。。。。" class="headerlink" title="真覺得以前的自己好傻。。。。"></a>真覺得以前的自己好傻。。。。</h2>]]></content>
-  </entry>
-  <entry>
-    <title>【B站】[AI初音ミク] 影色舞/Silhouette Dance - MyGO!!!!!</title>
-    <url>/2024/08/28/%E5%BD%B1%E8%89%B2%E8%88%9E/</url>
-    <content><![CDATA[<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113034664150895&bvid=BV1XSs4eDEEG&cid=25608392532&p=1" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
-      <tags>
-        <tag>音乐</tag>
-        <tag>术力口</tag>
-      </tags>
   </entry>
 </search>
