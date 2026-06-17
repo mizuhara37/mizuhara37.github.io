@@ -380,24 +380,6 @@ a {
 ]]></content>
   </entry>
   <entry>
-    <title>维护日志与前阶段的一些想法</title>
-    <url>/2026/06/16/restart-or-nnot/</url>
-    <content><![CDATA[<h4 id="诶，上次维护还是在今年2月，就换了个域名就跑了"><a href="#诶，上次维护还是在今年2月，就换了个域名就跑了" class="headerlink" title="诶，上次维护还是在今年2月，就换了个域名就跑了"></a>诶，上次维护还是在今年2月，就换了个域名就跑了</h4><h4 id="还是先来看看维护日志吧"><a href="#还是先来看看维护日志吧" class="headerlink" title="还是先来看看维护日志吧"></a>还是先来看看维护日志吧</h4><h1 id="维护日志"><a href="#维护日志" class="headerlink" title="维护日志"></a>维护日志</h1><h2 id="1-加载速度优化"><a href="#1-加载速度优化" class="headerlink" title="1.加载速度优化"></a>1.加载速度优化</h2><p>因为GitHub Pages本身服务器就在境外，我又用cn域名，就导致了一个很尴尬的情况-科学和裸连都不行，除非开全局加速了。那么这次我把图片大部分都上传到了图床上，应该图片加载速度会快些吧。（真的麻烦</p>
-<h2 id="2-“关于”部分加了历史记录"><a href="#2-“关于”部分加了历史记录" class="headerlink" title="2.“关于”部分加了历史记录"></a>2.“关于”部分加了历史记录</h2><p>我的自我介绍真的是改了又改改了又改，不同时期爱好什么完全不一样，所以我将我所有自我介绍都放在这里，既是给大家充分了解我的机会，又让我能回忆从前的自己吧。</p>
-<h2 id="3-小细节修改"><a href="#3-小细节修改" class="headerlink" title="3.小细节修改"></a>3.小细节修改</h2><p>（1）无图文章图片都是宁宁（当然这篇不是无图，是有意加的<br>（2）给自己搞了个toolkit当轮椅用，但是不太好用<br>（3）日间模式背景从popipa换到了世界计划<br>（4）修复了一些已知问题（），并顺便对着家猫发了五分钟呆</p>
-<h4 id="差不多就这样"><a href="#差不多就这样" class="headerlink" title="差不多就这样"></a>差不多就这样</h4>]]></content>
-      <tags>
-        <tag>Anime</tag>
-        <tag>BanG Dream!</tag>
-        <tag>JapanTravel</tag>
-        <tag>音乐</tag>
-        <tag>游戏</tag>
-        <tag>自己</tag>
-        <tag>音游</tag>
-        <tag>维护</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【B站】祝福 TV size 术力口投稿</title>
     <url>/2023/08/04/zhufu/</url>
     <content><![CDATA[<iframe src="//player.bilibili.com/player.html?aid=829202994&bvid=BV1fu4y1y7Ek&cid=1218207486&page=1&high_quality=1&danmaku=0" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>]]></content>
@@ -435,6 +417,25 @@ a {
       <tags>
         <tag>音乐</tag>
         <tag>术力口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>维护日志与前阶段的一些想法与总结</title>
+    <url>/2026/06/16/restart-or-not/</url>
+    <content><![CDATA[<h4 id="诶，上次维护还是在今年2月，换了个域名就跑了"><a href="#诶，上次维护还是在今年2月，换了个域名就跑了" class="headerlink" title="诶，上次维护还是在今年2月，换了个域名就跑了"></a>诶，上次维护还是在今年2月，换了个域名就跑了</h4><h4 id="还是先来看看维护日志吧"><a href="#还是先来看看维护日志吧" class="headerlink" title="还是先来看看维护日志吧"></a>还是先来看看维护日志吧</h4><h1 id="维护日志"><a href="#维护日志" class="headerlink" title="维护日志"></a>维护日志</h1><h2 id="1-加载速度优化"><a href="#1-加载速度优化" class="headerlink" title="1.加载速度优化"></a>1.加载速度优化</h2><p>因为GitHub Pages本身服务器就在境外，我又用cn域名，就导致了一个很尴尬的情况-科学和裸连都不行，除非开全局加速了。那么这次我把图片大部分都上传到了图床上，应该图片加载速度会快些吧。（真的麻烦 </p>
+<h2 id="2-“关于”部分加了历史记录"><a href="#2-“关于”部分加了历史记录" class="headerlink" title="2.“关于”部分加了历史记录"></a>2.“关于”部分加了历史记录</h2><p>我的自我介绍真的是改了又改改了又改，不同时期爱好什么完全不一样，所以我将我所有自我介绍都放在这里，既是给大家充分了解我的机会，又让我能回忆从前的自己吧。</p>
+<h2 id="3-小细节修改"><a href="#3-小细节修改" class="headerlink" title="3.小细节修改"></a>3.小细节修改</h2><p>（1）无图文章图片都是宁宁（当然这篇不是无图，是有意加的<br>（2）给自己搞了个toolkit当轮椅用，但是不太好用<br>（3）日间模式背景从popipa换到了世界计划<br>（4）修复了一些已知问题（），并顺便对着家猫发了五分钟呆</p>
+<h4 id="维护日志差不多就这样"><a href="#维护日志差不多就这样" class="headerlink" title="维护日志差不多就这样"></a>维护日志差不多就这样</h4><h1 id="一些随意的想法"><a href="#一些随意的想法" class="headerlink" title="一些随意的想法"></a>一些随意的想法</h1><p>时间过得挺快的，高中真的一下子就过去了，从中考结束到高考结束说实话完全是不同的两个我，而且我一般都会很讨厌前阶段的自己，就比如现在讨厌自己高一高二甚至初一初二时做出的一些事。我会觉得自己真的很蠢，啥事都干不好还会做出让自己反感的事。在看文章的你是不是觉得我写的文段语言一点都不通顺？不过过去了就过去了，我的各种属性也已经早已定型了，也没办法，我就只能这样呗。<br>看到以前自己各种废案和现在看起来很无聊的“奇思妙想”还是挺感叹的，以前是真正在认真对待这些事，包括个人介绍，什么什么启动器，什么QQ机器人。以前游戏是真的能长时间地玩，现在可能是因为高中习惯了吧，经常断断续续，玩一会就力竭了。我可以说高中这三年和我初中这三年相比，各种好奇心与奇思妙想完全消失了，最大的区别是变佛系了很多，也可以说是某些方面的懒散，但还有心态上的变化-时不时讨厌上学，返校后怨天怨地的不说话可以持续一个星期，不过还好，每次一个星期都是我效率最高的时候，尽管讨厌也在硬逼自己往前走。<br>少女乐队算是我高中三年整体的基调，真的要谢谢《孤独摇滚》，否则就不会去看邦多利和《哭泣少女乐队》，不看邦多利就不会去玩它的游戏，不玩它的游戏就不会去玩其他音游了。我还真的得谢谢FastRead发的一些动态能勾起我的兴趣，谢谢琼琼和FastRead能陪我一起打游戏。<br>接下来有什么计划，实际上没有计划，我完全想不出博客要更新什么内容，不过我想重启QQ机器人，至少现在有事干了。</p>
+]]></content>
+      <tags>
+        <tag>Anime</tag>
+        <tag>BanG Dream!</tag>
+        <tag>JapanTravel</tag>
+        <tag>音乐</tag>
+        <tag>游戏</tag>
+        <tag>自己</tag>
+        <tag>音游</tag>
+        <tag>维护</tag>
       </tags>
   </entry>
 </search>
