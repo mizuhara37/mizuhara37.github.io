@@ -2733,6 +2733,10 @@ html.is-animating .scroll-progress-bar {
   opacity: 1;
   transition: all 0.1s linear;
 }
+.comments-container .utterances {
+  width: 100%;
+  max-width: 100%;
+}
 .aplayer {
   margin: 5px;
   border-radius: 14px;
