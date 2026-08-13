@@ -537,8 +537,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-08-11 16:50:47</span>
-            <span class="mobile">2026-08-11 16:50:47</span>
+            <span class="desktop">2026-08-13 19:30:12</span>
+            <span class="mobile">2026-08-13 19:30:12</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -580,7 +580,9 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>终于开始发表技术性的文章啦，这里大多是自用的笔记加上自己的理解（其实是温习加深印象），希望对你我都有帮助<br>我目前看的教程是B站上的《从零开始的&lt;冥日芳粥：肿么滴&gt;》，这个教程教的有点浅，gdscript具体语法教的挺少，速度也快，看这个就当作对引擎的熟悉了。本日志是每两集教程后进行一次总结。</p>
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=86 src="//music.163.com/outchain/player?type=2&id=2101784052&auto=1&height=66"></iframe>
+
+<p>终于开始发表技术性的文章啦，这里大多是自用的笔记加上自己的理解（其实是温习加深印象），希望对你我都有帮助<br>我目前看的教程是B站上的《从零开始的&lt;冥日芳粥：肿么滴&gt;》，这个教程教的有点浅，gdscript具体语法教的挺少，速度也快，看这个就当作对引擎的熟悉了。本日志是每两集教程后进行一次总结。</p>
 <p>说实话Godot总给我一直scratch的感觉，当然其实也完全不像（个人看法），毕竟本来这两者定位完全不同。Godot的各种树形节点我认为是一大亮点，真的太清晰了，并且也提供了实例节点能直接拿来使用，不赖~。还有像场景是单独的一个文件，角色又是单独的一个文件，把角色运用到场景中就直接实例化子节点，不赖不赖。</p>
 <p><img  
                      lazyload
@@ -594,7 +596,36 @@
                       alt="推荐文件结构"
                 ></p>
 <p>还有什么头什么命名，总之每个单词首字母大写GroundTileMapLayer这样，还有常量</p>
-<h2 id="瓦片地图"><a href="#瓦片地图" class="headerlink" title="瓦片地图"></a>瓦片地图</h2><p>要先在场景文件中创建子节点TileMapLayer。TileMapLayer可以创建好几个，都能同时组成地图结构。教程是分为GroundTileMapLayer和OverlayTileMapLayer分别对应地砖墙壁 和 贴近地板显示<br>瓦片地图最好是在xy轴</p>
+<h2 id="瓦片地图"><a href="#瓦片地图" class="headerlink" title="瓦片地图"></a>瓦片地图</h2><p>新建场景，先在场景文件中创建子节点TileMapLayer。TileMapLayer可以创建好几个，都能同时组成地图结构。教程是分为GroundTileMapLayer和OverlayTileMapLayer分别对应地砖墙壁 和 贴近地板显示<br>瓦片地图最好是在xy轴原点开始绘制，对应的相机也要移动。<br>动态瓦片和普通瓦片分开设置，在TileSet点+创建图集。注意材质的切割。动态瓦片询问是否自动创建图块，要点否，选中选中第一列后，在选择面板中点每一行第一列的图块，修改速度并选择帧播放模式。设置好后重新拖拽选中第一列瓦片，点击四次frames中的添加元素按钮。</p>
+<h2 id="玩家场景搭建"><a href="#玩家场景搭建" class="headerlink" title="玩家场景搭建"></a>玩家场景搭建</h2><p>新建场景（超级组装）属性为CharacterBody2D（专门用于人物移动，具有物理规则）<br>碰撞体积（新建CollisionShape2D）<br>这部分有点懒得写了，直接放图片吧</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/godot/3.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/godot/4.jpg"
+                     
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/godot/5.jpg"
+                     
+                ></p>
+<p>将玩家放入游戏场景需要实例化子场景</p>
+<p>&#96;<br>extends CharacterBody2D</p>
+<p>const NORMAL_ANIMATION_PREFIX :&#x3D;&amp;”normal” #normal通用前缀名 习惯大写写常量 :&#x3D; 自动定义变量<br>@export var move_speed: float &#x3D; 120.0 #像素&#x2F;s<br>@onready var body_sprite: AnimatedSprite2D &#x3D; $BodySprite #引用<br>var facing_suffix: StringName &#x3D; &amp;”right”  #朝向</p>
+<p>#内置逻辑入口，实例化后开始调用_ready</p>
+<p>func _ready() -&gt; void:<br>	_update_animation()</p>
+<p>func _physics_process(delta: float) -&gt; void:<br>	var move_input &#x3D; Input.get_vector(“move_left”,”move_right”,”move_up”,”move_down”)   #—–&gt;输入映射不再一一叙述<br>	#-x +x -y +y 二维向量 八向输入<br>	velocity &#x3D; move_input * move_speed<br>	move_and_slide()<br>	<br>	#输入并非二维零向量，则存在输入  重新根据当前按键计算使用朝向值<br>	if move_input !&#x3D; Vector2.ZERO:<br>		facing_suffix &#x3D; _vector_to_facing_suffix(move_input)<br>	<br>	_update_animation() #随时变化<br>	<br>func <em>update_animation() -&gt; void:<br>	var animation_name :&#x3D; StringName(“%s</em>%s” % [NORMAL_ANIMATION_PREFIX, facing_suffix])<br>	# 检测是否存在这个动画，利于查错<br>	if not body_sprite.sprite_frames.has_animation(animation_name):<br>		push_warning(“Missing player animation: %s” % animation_name) #我说这个字符串真像C的printf啊<br>		return<br>		#退出不执行<br>	# 现在的动画和animation_name 不同就变化，变化用.play(name) 	<br>	if body_sprite.animation !&#x3D; animation_name:<br>		body_sprite.play(animation_name)</p>
+<p>#后缀计算<br>func _vector_to_facing_suffix(direction: Vector2) -&gt; StringName:<br>	#这个用于手柄控制，也利于后续开发 分量大就优先使用哪个轴<br>	if abs(direction.x) &gt;&#x3D; abs(direction.y):<br>		return &amp;”right” if direction.x &gt;0.0 else &amp;”left”<br>	<br>	return &amp;”down” if direction.y &gt; 0.0 else &amp;”up”<br>    #这里return的逻辑有点怪第一次见到，<br>    # return &amp;”right” if direction.x &gt;0.0 相当于 if direction.x&gt;0.0: return &amp;”right” else return &amp;”left”<br>&#96;</p>
+<p>Node2D什么功能都没有，最最基础<br>Area2D飞出去命中然后消失，多用于子弹类似的物体<br>RigidBody2D完全交给物理引擎，箱子石头，被炸飞的杂物（拟真模拟需求）</p>
+<p>Sprite2D渲染纹理</p>
+<p>面向对象类，让它自己维护更新自身</p>
+<p>脚本内部函数 _abc_def<br>暴露在外的公共函数 abc_def</p>
+<p>godot 的 _process 相当于 unity 的 Update<br>godot 的 _physics_process 相当于 unity 的 FixedUpdate<br>_process 会受到显屏幕刷新率影响<br>_physics_process 会受到项目设置影响<br>（项目设置→常规→Physics→Common→Physics Fps）</p>
 
 		</div>
 
@@ -609,7 +640,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-08-11 16:50:47
+                    :</strong> 2026-08-13 19:30:12
             </li>
         
         <li>
@@ -747,7 +778,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">Godot学习日志第一期--简单熟悉引擎</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE"><span class="nav-text">瓦片地图</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE"><span class="nav-text">瓦片地图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%A9%E5%AE%B6%E5%9C%BA%E6%99%AF%E6%90%AD%E5%BB%BA"><span class="nav-text">玩家场景搭建</span></a></li></ol>
 
 	</div>
 </div>
