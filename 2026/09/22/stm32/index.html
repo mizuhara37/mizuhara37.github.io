@@ -478,7 +478,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -508,8 +508,12 @@
 
 		<div class="article-title relative w-full">
 			
-			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">【紧急】STM32速成记录</h1>
+			
+			
+			<img src="/img/shu.png" alt="【紧急】STM32速成记录" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">【紧急】STM32速成记录</h1>
 			</div>
 			
 		</div>
@@ -537,13 +541,24 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-09-25 19:19:40</span>
-            <span class="mobile">2026-09-25 19:19:40</span>
+            <span class="desktop">2026-11-09 22:24:15</span>
+            <span class="mobile">2026-11-09 22:24:15</span>
             <span class="hover-info">更新</span>
         </span>
     
 
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%BC%80%E5%8F%91/">开发</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -569,6 +584,447 @@
 <h3 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h3><p>不能浮空输入<br>连接高电平VCC（3.3&#x2F;5V）（1）的电阻为上拉输入<br>连接GND（0）的电阻为下拉输入<br>悬空连接传感器</p>
 <h3 id="输出模式"><a href="#输出模式" class="headerlink" title="输出模式"></a>输出模式</h3><h4 id="推挽输出"><a href="#推挽输出" class="headerlink" title="推挽输出"></a>推挽输出</h4><p>两个开关<br>引脚直接连接VCC或GND</p>
 <h4 id="开漏输出"><a href="#开漏输出" class="headerlink" title="开漏输出"></a>开漏输出</h4><p>只用一个开关，但是增加一个上拉电阻<br>开关未连接时上拉至高电平1，但是无法驱动各种原件，因为上拉电阻很大<br>开关连接，输出低电平0<br>所以开漏输出只能输出低电平，不能主动输出高电平</p>
+<h1 id="STM32-学习笔记整理"><a href="#STM32-学习笔记整理" class="headerlink" title="STM32 学习笔记整理"></a>STM32 学习笔记整理</h1><blockquote>
+<p>根据 8 页手写笔记整理，内容主要针对 <strong>STM32F103 系列 + Keil MDK + STM32 标准外设库（SPL）</strong>。已重新编排章节、补全示例代码，并将容易写错或需要依据芯片型号确认的地方标注出来。</p>
+<p><strong>说明</strong>：代码示例是根据笔记内容整理出的教学示例，并非对原笔记逐字转录。实际工程中的头文件、启动文件、外设引脚需按芯片型号与电路板调整。</p>
+</blockquote>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#1-%E6%96%B0%E5%BB%BA-stm32-%E5%B7%A5%E7%A8%8B">新建 STM32 工程</a></li>
+<li><a href="#2-stm32-%E7%94%B5%E6%BA%90%E4%B8%8E%E5%BC%95%E8%84%9A%E5%9F%BA%E7%A1%80">STM32 电源与引脚基础</a></li>
+<li><a href="#3-gpio-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96">GPIO 基本概念与初始化</a></li>
+<li><a href="#4-gpio-%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F">GPIO 的八种工作模式</a></li>
+<li><a href="#5-gpio-%E8%BE%93%E5%87%BA%E4%B8%8E%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0">GPIO 输出与输入函数</a></li>
+<li><a href="#6-%E6%8C%89%E9%94%AE%E7%94%B5%E8%B7%AF%E4%B8%8A%E4%B8%8B%E6%8B%89%E4%B8%8E%E7%94%B5%E5%B9%B3%E5%88%A4%E6%96%AD">按键电路、上下拉与电平判断</a></li>
+<li><a href="#7-c-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%85">C 语言基础补充</a></li>
+<li><a href="#8-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%8E%E5%A4%B4%E6%96%87%E4%BB%B6">模块化编程与头文件</a></li>
+<li><a href="#9-exti-%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD%E5%85%A5%E9%97%A8">EXTI 外部中断入门</a></li>
+<li><a href="#10-%E6%98%93%E9%94%99%E7%82%B9%E9%80%9F%E6%9F%A5">易错点速查</a></li>
+</ol>
+<hr>
+<h2 id="1-新建-STM32-工程"><a href="#1-新建-STM32-工程" class="headerlink" title="1. 新建 STM32 工程"></a>1. 新建 STM32 工程</h2><p>以下对应笔记第 1 页的 Keil 新建工程流程。</p>
+<ol>
+<li><strong>Project → New µVision Project</strong>：创建工程并指定工程名和路径。</li>
+<li>在器件选择界面选择具体的 STM32 芯片型号（如所用 STM32F103xx）。</li>
+<li>在工程目录下建立 <code>Start</code>、<code>Library</code>、<code>User</code> 等文件夹，便于管理。</li>
+<li>添加 <strong>CMSIS、标准外设库和设备支持文件</strong>，并将相关 <code>.c</code> 文件加入 Keil 工程组。</li>
+<li>在 <code>Start</code> 组中加入对应芯片型号的启动文件，例如某些 STM32F103 中容量型号使用 <code>startup_stm32f10x_md.s</code>。</li>
+<li>在 <code>User</code> 组中加入 <code>main.c</code>、<code>stm32f10x_conf.h</code>、<code>stm32f10x_it.c</code> 等必要文件（具体以实际工程组织为准）。</li>
+<li>配置编译器的 C&#x2F;C++ Include Paths，使头文件能被正确找到。</li>
+<li>在预处理器宏中配置需要的芯片系列和外设库选项，例如 <code>STM32F10X_MD</code>、<code>USE_STDPERIPH_DRIVER</code>（以目标型号为准）。</li>
+<li>选择 <strong>Debug</strong> 调试器为 <code>ST-Link Debugger</code>，进入 <strong>Settings</strong> 检查连接与下载配置；在 <strong>Utilities &#x2F; Flash Download</strong> 检查烧录算法，执行下载或复位运行。</li>
+</ol>
+<h3 id="1-1-参考目录结构"><a href="#1-1-参考目录结构" class="headerlink" title="1.1 参考目录结构"></a>1.1 参考目录结构</h3><div class="code-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">STM32_Project/</span><br><span class="line">├── Project/                     # Keil 工程文件</span><br><span class="line">├── Start/                       # CMSIS、系统文件、启动汇编文件</span><br><span class="line">├── Library/                     # STM32F10x 标准外设库</span><br><span class="line">│   ├── inc/                     # 各外设头文件</span><br><span class="line">│   └── src/                     # 各外设源文件</span><br><span class="line">└── User/</span><br><span class="line">    ├── main.c</span><br><span class="line">    ├── stm32f10x_conf.h</span><br><span class="line">    └── stm32f10x_it.c</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="1-2-常见库文件"><a href="#1-2-常见库文件" class="headerlink" title="1.2 常见库文件"></a>1.2 常见库文件</h3><ul>
+<li><code>stm32f10x.h</code>：主要器件头文件。</li>
+<li><code>stm32f10x_gpio.h/.c</code>：GPIO 外设相关声明与实现。</li>
+<li><code>stm32f10x_rcc.h/.c</code>：时钟控制。</li>
+<li><code>stm32f10x_exti.h/.c</code>：外部中断控制器。</li>
+<li><code>stm32f10x_afio.h</code> 的相关 AFIO 功能在 STM32F1 的 GPIO&#x2F;AFIO 库接口中提供（标准外设库一般使用 <code>stm32f10x_gpio.h</code> 中的 AFIO 函数）。</li>
+<li>启动汇编文件：初始化向量表与启动过程，<strong>必须与芯片型号、存储容量匹配</strong>。</li>
+</ul>
+<blockquote>
+<p>原笔记中的复制路径和文件数量因库版本不同可能变化。应以手上 <strong>STM32F10x Standard Peripheral Library</strong> 的实际目录为准，不要机械照搬路径。</p>
+</blockquote>
+<hr>
+<h2 id="2-STM32-电源与引脚基础"><a href="#2-STM32-电源与引脚基础" class="headerlink" title="2. STM32 电源与引脚基础"></a>2. STM32 电源与引脚基础</h2><h3 id="2-1-常见电源引脚"><a href="#2-1-常见电源引脚" class="headerlink" title="2.1 常见电源引脚"></a>2.1 常见电源引脚</h3><table>
+<thead>
+<tr>
+<th>引脚&#x2F;信号</th>
+<th>作用</th>
+<th>连接要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VDD</code></td>
+<td>数字电源输入</td>
+<td>STM32F103 通常接 <strong>3.3 V</strong></td>
+</tr>
+<tr>
+<td><code>VSS</code></td>
+<td>数字地</td>
+<td>接 <code>GND</code></td>
+</tr>
+<tr>
+<td><code>VDDA</code></td>
+<td>模拟电源</td>
+<td>按数据手册连接，常用 3.3 V 并进行滤波</td>
+</tr>
+<tr>
+<td><code>VSSA</code></td>
+<td>模拟地</td>
+<td>按硬件设计要求连接地</td>
+</tr>
+<tr>
+<td><code>VBAT</code></td>
+<td>备份域电源</td>
+<td>不使用独立后备电池时，通常接到合适的主电源轨（依数据手册设计）</td>
+</tr>
+<tr>
+<td><code>FT</code> 标记</td>
+<td>5 V tolerant（部分数字引脚耐受 5 V）</td>
+<td><strong>不等于芯片用 5 V 供电</strong>；是否支持及限制需查引脚表</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>笔记中特别提醒：<code>VDD</code> 不是 5 V 电源。STM32F103 的 GPIO 高低电平门限、模拟功能与 5 V 耐受都应按具体引脚的数据手册判断。</p>
+</blockquote>
+<h3 id="2-2-GPIO-的分组"><a href="#2-2-GPIO-的分组" class="headerlink" title="2.2 GPIO 的分组"></a>2.2 GPIO 的分组</h3><ul>
+<li><code>GPIOA</code> 对应 <code>PA0</code>、<code>PA1</code>、<code>PA2</code>……</li>
+<li><code>GPIOB</code> 对应 <code>PB0</code>、<code>PB1</code>、<code>PB2</code>……</li>
+<li><code>GPIOC</code> 对应 <code>PC0</code>、<code>PC1</code>、<code>PC2</code>……</li>
+</ul>
+<p>例如：<strong>PA0 对应 GPIOA 的 Pin 0，PB2 对应 GPIOB 的 Pin 2</strong>。</p>
+<hr>
+<h2 id="3-GPIO-基本概念与初始化"><a href="#3-GPIO-基本概念与初始化" class="headerlink" title="3. GPIO 基本概念与初始化"></a>3. GPIO 基本概念与初始化</h2><p>以 <strong>PA0 配置为推挽输出</strong> 为例。</p>
+<h3 id="3-1-初始化顺序"><a href="#3-1-初始化顺序" class="headerlink" title="3.1 初始化顺序"></a>3.1 初始化顺序</h3><ol>
+<li>开启 GPIOA 的外设时钟。</li>
+<li>定义 <code>GPIO_InitTypeDef</code> 结构体。</li>
+<li>为结构体的 <code>GPIO_Pin</code>、<code>GPIO_Mode</code>、<code>GPIO_Speed</code> 字段赋值。</li>
+<li>调用 <code>GPIO_Init()</code> 完成引脚初始化。</li>
+</ol>
+<h3 id="3-2-示例代码"><a href="#3-2-示例代码" class="headerlink" title="3.2 示例代码"></a>3.2 示例代码</h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">LED_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 开启 GPIOA 时钟</span></span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 选择 PA0</span></span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 配置为推挽输出</span></span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 最大输出速度配置为 50 MHz（并非实际翻转频率）</span></span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 应用配置</span></span><br><span class="line">    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>函数拆解</strong></p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>第一个参数：要控制的外设时钟（这里是 GPIOA）。</li>
+<li>第二个参数：<code>ENABLE</code> 开启，<code>DISABLE</code> 关闭。</li>
+</ul>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>GPIOA</code>：配置哪一组 GPIO。</li>
+<li><code>&amp;GPIO_InitStructure</code>：把初始化结构体的<strong>地址</strong>传入函数。</li>
+</ul>
+<blockquote>
+<p><code>GPIO_Speed_50MHz</code> 是 F1 输出驱动速度档位，不代表 MCU 会自动输出 50 MHz 方波。</p>
+</blockquote>
+<hr>
+<h2 id="4-GPIO-的八种工作模式"><a href="#4-GPIO-的八种工作模式" class="headerlink" title="4. GPIO 的八种工作模式"></a>4. GPIO 的八种工作模式</h2><p>在 STM32F1 标准外设库中，经常见到以下八种模式。</p>
+<table>
+<thead>
+<tr>
+<th>枚举值</th>
+<th>中文名称</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GPIO_Mode_AIN</code></td>
+<td>模拟输入</td>
+<td>ADC 模拟信号采集</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_IN_FLOATING</code></td>
+<td>浮空输入</td>
+<td>外部已有确定电平驱动的数字输入</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_IPD</code></td>
+<td>下拉输入</td>
+<td>默认低电平的按键、数字信号</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_IPU</code></td>
+<td>上拉输入</td>
+<td>默认高电平的按键、数字信号</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_Out_OD</code></td>
+<td>通用开漏输出</td>
+<td>需外部上拉的信号线</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_Out_PP</code></td>
+<td>通用推挽输出</td>
+<td>LED、普通数字输出</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_AF_OD</code></td>
+<td>复用开漏输出</td>
+<td>部分外设复用输出（如 I²C 的典型需求）</td>
+</tr>
+<tr>
+<td><code>GPIO_Mode_AF_PP</code></td>
+<td>复用推挽输出</td>
+<td>USART TX、定时器 PWM 等复用输出</td>
+</tr>
+</tbody></table>
+<h3 id="4-1-推挽输出-vs-开漏输出"><a href="#4-1-推挽输出-vs-开漏输出" class="headerlink" title="4.1 推挽输出 vs. 开漏输出"></a>4.1 推挽输出 vs. 开漏输出</h3><ul>
+<li><strong>推挽输出</strong>：内部上下管主动驱动高电平或低电平，适合一般数字输出。</li>
+<li><strong>开漏输出</strong>：通常只能主动拉低；释放后需依赖上拉电阻获得高电平，可用于共享信号线等场景。</li>
+</ul>
+<h3 id="4-2-输入上拉-下拉"><a href="#4-2-输入上拉-下拉" class="headerlink" title="4.2 输入上拉&#x2F;下拉"></a>4.2 输入上拉&#x2F;下拉</h3><ul>
+<li><strong>上拉输入</strong>：未被外部驱动时趋于高电平。</li>
+<li><strong>下拉输入</strong>：未被外部驱动时趋于低电平。</li>
+<li><strong>浮空输入</strong>：无内部上拉&#x2F;下拉，若无稳定外部驱动，电平可能不确定。</li>
+</ul>
+<hr>
+<h2 id="5-GPIO-输出与输入函数"><a href="#5-GPIO-输出与输入函数" class="headerlink" title="5. GPIO 输出与输入函数"></a>5. GPIO 输出与输入函数</h2><h3 id="5-1-输出函数"><a href="#5-1-输出函数" class="headerlink" title="5.1 输出函数"></a>5.1 输出函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GPIO_SetBits(GPIOx, GPIO_Pin)</code></td>
+<td>将指定引脚置为高电平</td>
+</tr>
+<tr>
+<td><code>GPIO_ResetBits(GPIOx, GPIO_Pin)</code></td>
+<td>将指定引脚置为低电平</td>
+</tr>
+<tr>
+<td><code>GPIO_WriteBit(GPIOx, GPIO_Pin, BitVal)</code></td>
+<td>将指定引脚写成 <code>Bit_SET</code> 或 <code>Bit_RESET</code></td>
+</tr>
+<tr>
+<td><code>GPIO_Write(GPIOx, PortVal)</code></td>
+<td>向 GPIO 端口的 16 位输出数据寄存器写入值</td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GPIO_SetBits(GPIOA, GPIO_Pin_0);                 <span class="comment">// PA0 置 1</span></span><br><span class="line">GPIO_ResetBits(GPIOA, GPIO_Pin_0);               <span class="comment">// PA0 置 0</span></span><br><span class="line">GPIO_WriteBit(GPIOA, GPIO_Pin_0, Bit_SET);       <span class="comment">// PA0 置 1</span></span><br><span class="line">GPIO_WriteBit(GPIOA, GPIO_Pin_0, Bit_RESET);     <span class="comment">// PA0 置 0</span></span><br><span class="line">GPIO_Write(GPIOA, <span class="number">0x0001</span>);                       <span class="comment">// 写入整个 GPIOA 输出端口</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="5-2-位掩码（Pin-Mask）"><a href="#5-2-位掩码（Pin-Mask）" class="headerlink" title="5.2 位掩码（Pin Mask）"></a>5.2 位掩码（Pin Mask）</h3><table>
+<thead>
+<tr>
+<th>引脚</th>
+<th>位掩码</th>
+<th>二进制最低位示意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>PA0</code></td>
+<td><code>0x0001</code></td>
+<td><code>...0001</code></td>
+</tr>
+<tr>
+<td><code>PA1</code></td>
+<td><code>0x0002</code></td>
+<td><code>...0010</code></td>
+</tr>
+<tr>
+<td><code>PA2</code></td>
+<td><code>0x0004</code></td>
+<td><code>...0100</code></td>
+</tr>
+<tr>
+<td><code>PA3</code></td>
+<td><code>0x0008</code></td>
+<td><code>...1000</code></td>
+</tr>
+</tbody></table>
+<p>组合引脚可使用按位或：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPIO_Pin_0 | GPIO_Pin_1</span><br></pre></td></tr></table></figure></div>
+
+<p>即选中 PA0 与 PA1 两个位。<strong>按位或 <code>|</code> 用于组合位标志，不是算术加法的通用替代品。</strong></p>
+<blockquote>
+<p><code>GPIO_Write(GPIOA, PortVal)</code> 是对<strong>整个端口</strong>的输出数据进行写入，而非只改变某一位。修改单个引脚通常优先使用 <code>SetBits</code>、<code>ResetBits</code> 或 <code>WriteBit</code>。</p>
+</blockquote>
+<h3 id="5-3-输入与输出状态读取"><a href="#5-3-输入与输出状态读取" class="headerlink" title="5.3 输入与输出状态读取"></a>5.3 输入与输出状态读取</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GPIO_ReadInputDataBit(GPIOx, GPIO_Pin)</code></td>
+<td>读取一个引脚的<strong>实际输入电平</strong>（IDR）</td>
+</tr>
+<tr>
+<td><code>GPIO_ReadInputData(GPIOx)</code></td>
+<td>读取整个端口的输入数据寄存器（IDR）</td>
+</tr>
+<tr>
+<td><code>GPIO_ReadOutputDataBit(GPIOx, GPIO_Pin)</code></td>
+<td>读取一个引脚的<strong>输出数据寄存器位</strong>（ODR）</td>
+</tr>
+<tr>
+<td><code>GPIO_ReadOutputData(GPIOx)</code></td>
+<td>读取整个端口的输出数据寄存器（ODR）</td>
+</tr>
+</tbody></table>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">uint8_t</span> level = GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_2);</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>重要区别</strong>：<code>ReadInputDataBit()</code> 读取管脚输入状态，<code>ReadOutputDataBit()</code> 读取输出寄存器中保存的逻辑值，两者并不总是相同。</p>
+<hr>
+<h2 id="6-按键电路、上下拉与电平判断"><a href="#6-按键电路、上下拉与电平判断" class="headerlink" title="6. 按键电路、上下拉与电平判断"></a>6. 按键电路、上下拉与电平判断</h2><p>笔记讨论了上拉按键和下拉按键的基本电路。</p>
+<h3 id="6-1-上拉按键：按下为低电平"><a href="#6-1-上拉按键：按下为低电平" class="headerlink" title="6.1 上拉按键：按下为低电平"></a>6.1 上拉按键：按下为低电平</h3><div class="code-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3.3V</span><br><span class="line">  |</span><br><span class="line">[上拉电阻]</span><br><span class="line">  |</span><br><span class="line">  +------ GPIO 输入</span><br><span class="line">  |</span><br><span class="line">[按键 K1]</span><br><span class="line">  |</span><br><span class="line"> GND</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>松开：输入节点通过上拉电阻接 3.3 V，读取 <strong>1</strong>。</li>
+<li>按下：输入节点与地相连，读取 <strong>0</strong>。</li>
+<li>可使用外部上拉，也可在合适的电路中使用 STM32 内部上拉。</li>
+</ul>
+<h3 id="6-2-下拉按键：按下为高电平"><a href="#6-2-下拉按键：按下为高电平" class="headerlink" title="6.2 下拉按键：按下为高电平"></a>6.2 下拉按键：按下为高电平</h3><div class="code-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3.3V</span><br><span class="line">  |</span><br><span class="line">[按键 K1]</span><br><span class="line">  |</span><br><span class="line">  +------ GPIO 输入</span><br><span class="line">  |</span><br><span class="line">[下拉电阻]</span><br><span class="line">  |</span><br><span class="line"> GND</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>松开：输入节点被下拉，读取 <strong>0</strong>。</li>
+<li>按下：输入节点接 3.3 V，读取 <strong>1</strong>。</li>
+</ul>
+<h3 id="6-3-电平判断示例"><a href="#6-3-电平判断示例" class="headerlink" title="6.3 电平判断示例"></a>6.3 电平判断示例</h3><p>以 <strong>PB2 接上拉式按键</strong> 为例：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Key_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);</span><br><span class="line"></span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">    GPIO_Init(GPIOB, &amp;GPIO_InitStructure);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint8_t</span> <span class="title function_">Key_IsPressed</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 上拉按键：低电平表示按下</span></span><br><span class="line">    <span class="keyword">return</span> GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_2) == Bit_RESET;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>若外部电路的连接方式不同，按键的有效电平也会不同。真实按键还需要考虑<strong>机械抖动（消抖）</strong>。GPIO 不是拿来直接给 LED&#x2F;负载供大电流的，LED 应串联限流电阻。</p>
+</blockquote>
+<hr>
+<h2 id="7-C-语言基础补充"><a href="#7-C-语言基础补充" class="headerlink" title="7. C 语言基础补充"></a>7. C 语言基础补充</h2><h3 id="7-1-常见整数类型与固定宽度类型"><a href="#7-1-常见整数类型与固定宽度类型" class="headerlink" title="7.1 常见整数类型与固定宽度类型"></a>7.1 常见整数类型与固定宽度类型</h3><p>笔记整理了常见 C 类型与 <code>stdint.h</code> 中类型的关系：</p>
+<table>
+<thead>
+<tr>
+<th>C 类型</th>
+<th align="right">STM32 常见环境下的位宽</th>
+<th>对应固定宽度类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>char</code> &#x2F; <code>signed char</code></td>
+<td align="right">8 位</td>
+<td><code>int8_t</code>（有符号时）</td>
+</tr>
+<tr>
+<td><code>unsigned char</code></td>
+<td align="right">8 位</td>
+<td><code>uint8_t</code></td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td align="right">16 位</td>
+<td><code>int16_t</code></td>
+</tr>
+<tr>
+<td><code>unsigned short</code></td>
+<td align="right">16 位</td>
+<td><code>uint16_t</code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td align="right">32 位</td>
+<td><code>int32_t</code></td>
+</tr>
+<tr>
+<td><code>unsigned int</code></td>
+<td align="right">32 位</td>
+<td><code>uint32_t</code></td>
+</tr>
+<tr>
+<td><code>long long</code></td>
+<td align="right">64 位</td>
+<td><code>int64_t</code></td>
+</tr>
+<tr>
+<td><code>unsigned long long</code></td>
+<td align="right">64 位</td>
+<td><code>uint64_t</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：C 标准<strong>不保证</strong> <code>char</code> 一定是有符号的，也不保证 <code>int</code> 在所有平台都是 32 位。开发嵌入式程序时，若需要明确位宽，推荐使用 <code>uint8_t</code>、<code>uint16_t</code>、<code>uint32_t</code> 等类型。</p>
+</blockquote>
+<h3 id="7-2-define：宏定义"><a href="#7-2-define：宏定义" class="headerlink" title="7.2 #define：宏定义"></a>7.2 <code>#define</code>：宏定义</h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> ABC 12345</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = ABC; <span class="comment">// 预处理后相当于 int a = 12345;</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>主要用于预处理阶段的文本替换。</li>
+<li>宏定义本身通常<strong>不带分号</strong>。</li>
+<li>它不是变量，也不天然具有类型信息。</li>
+</ul>
+<h3 id="7-3-typedef：类型别名"><a href="#7-3-typedef：类型别名" class="headerlink" title="7.3 typedef：类型别名"></a>7.3 <code>typedef</code>：类型别名</h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">char</span> <span class="type">uint8_alias_t</span>;</span><br><span class="line"><span class="type">uint8_alias_t</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>typedef</code> 给已有类型起一个新名字，并不生成一种全新的底层数据类型。</p>
+<h3 id="7-4-struct：结构体"><a href="#7-4-struct：结构体" class="headerlink" title="7.4 struct：结构体"></a>7.4 <code>struct</code>：结构体</h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">char</span> grade;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> <span class="title">s</span>;</span></span><br><span class="line">s.grade = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> *<span class="title">p</span> =</span> &amp;s;</span><br><span class="line">p-&gt;grade = <span class="string">&#x27;B&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>结构体变量访问字段：<code>.</code>，例如 <code>s.grade</code>。</li>
+<li>指向结构体的指针访问字段：<code>-&gt;</code>，例如 <code>p-&gt;grade</code>。</li>
+<li><code>p-&gt;grade</code> 等价于 <code>(*p).grade</code>。</li>
+</ul>
+<h3 id="7-5-enum：枚举"><a href="#7-5-enum：枚举" class="headerlink" title="7.5 enum：枚举"></a>7.5 <code>enum</code>：枚举</h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Week</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    MON = <span class="number">1</span>,</span><br><span class="line">    TUES = <span class="number">2</span>,</span><br><span class="line">    WEDS           <span class="comment">// 自动递增为 3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Week</span> <span class="title">today</span> =</span> MON;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>枚举成员可以手动赋整数值。</li>
+<li>后续未显式赋值的枚举成员，默认等于前一个成员的值加一。</li>
+<li>在 C 语言中，若未使用 <code>typedef</code>，变量通常声明为 <code>enum Week today;</code>，不能直接写 <code>Week today;</code>。</li>
+</ul>
+<hr>
+<h2 id="8-模块化编程与头文件"><a href="#8-模块化编程与头文件" class="headerlink" title="8. 模块化编程与头文件"></a>8. 模块化编程与头文件</h2><p>笔记提到 <code>.c</code> 用于函数实现，<code>.h</code> 用于对外声明。</p>
+<h3 id="8-1-LED-h"><a href="#8-1-LED-h" class="headerlink" title="8.1 LED.h"></a>8.1 <code>LED.h</code></h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __LED_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __LED_H</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">LED_Init</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></div>
+
+<p>这里的 <code>#ifndef / #define / #endif</code> 是<strong>头文件保护</strong>，用于避免同一个头文件被重复包含时造成重复声明或定义问题。</p>
+<h3 id="8-2-LED-c"><a href="#8-2-LED-c" class="headerlink" title="8.2 LED.c"></a>8.2 <code>LED.c</code></h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LED.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">LED_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line"></span><br><span class="line">    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="8-3-main-c"><a href="#8-3-main-c" class="headerlink" title="8.3 main.c"></a>8.3 <code>main.c</code></h3><div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LED.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    LED_Init();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 主循环</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p><code>LED.c</code> 需要加入 Keil 的工程编译列表，不能仅仅放在磁盘目录中。</p>
+</blockquote>
+<hr>
+<h2 id="9-EXTI-外部中断入门"><a href="#9-EXTI-外部中断入门" class="headerlink" title="9. EXTI 外部中断入门"></a>9. EXTI 外部中断入门</h2><h3 id="9-1-中断的基本流程"><a href="#9-1-中断的基本流程" class="headerlink" title="9.1 中断的基本流程"></a>9.1 中断的基本流程</h3><div class="code-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">程序正常运行</span><br><span class="line">      |</span><br><span class="line">检测到满足条件的外部事件</span><br><span class="line">      |</span><br><span class="line">触发 EXTI 中断请求</span><br><span class="line">      |</span><br><span class="line">NVIC 允许且中断条件有效</span><br><span class="line">      |</span><br><span class="line">进入中断服务函数（ISR）</span><br><span class="line">      |</span><br><span class="line">清除对应的中断挂起标志</span><br><span class="line">      |</span><br><span class="line">返回被中断的程序</span><br></pre></td></tr></table></figure></div>
+
+<p>笔记中的中断草图强调：<strong>发生事件 → 暂停当前执行流 → 处理中断 → 返回原程序</strong>。</p>
+<h3 id="9-2-STM32F1-的-EXTI-线与-GPIO-引脚"><a href="#9-2-STM32F1-的-EXTI-线与-GPIO-引脚" class="headerlink" title="9.2 STM32F1 的 EXTI 线与 GPIO 引脚"></a>9.2 STM32F1 的 EXTI 线与 GPIO 引脚</h3><ul>
+<li><code>EXTI0</code> 对应编号为 <strong>0</strong> 的引脚，例如 <code>PA0</code>、<code>PB0</code>、<code>PC0</code> 等之一。</li>
+<li><code>EXTI6</code> 对应编号为 <strong>6</strong> 的引脚，例如 <code>PA6</code>、<code>PB6</code>、<code>PC6</code> 等之一。</li>
+<li><code>EXTI7</code> 对应编号为 <strong>7</strong> 的引脚。</li>
+<li>对 STM32F1 的 GPIO 外部中断映射而言，<strong>同一条 EXTI 线一次只能选择一个 GPIO 端口作为来源</strong>：例如无法同时把 <code>PA0</code> 和 <code>PB0</code> 配置为两个独立的 <code>EXTI0</code> 输入。</li>
+<li>不同编号的引脚，如 <code>PA6</code> 和 <code>PA7</code>，可分别使用 <code>EXTI6</code> 与 <code>EXTI7</code>；但某些 EXTI 线共用 NVIC 中断入口（如 <code>EXTI9_5_IRQn</code>），需要在服务函数中分别判断挂起位。</li>
+</ul>
+<h3 id="9-3-常用触发方式"><a href="#9-3-常用触发方式" class="headerlink" title="9.3 常用触发方式"></a>9.3 常用触发方式</h3><table>
+<thead>
+<tr>
+<th>触发方式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>EXTI_Trigger_Rising</code></td>
+<td>上升沿触发（低 → 高）</td>
+</tr>
+<tr>
+<td><code>EXTI_Trigger_Falling</code></td>
+<td>下降沿触发（高 → 低）</td>
+</tr>
+<tr>
+<td><code>EXTI_Trigger_Rising_Falling</code></td>
+<td>上升沿和下降沿均触发</td>
+</tr>
+</tbody></table>
+<p>按键示例：上拉按键从松开到按下通常发生<strong>下降沿</strong>，适合 <code>EXTI_Trigger_Falling</code>；但实际应用仍需要消抖处理。</p>
+<h3 id="9-4-STM32F1-外部中断配置思路"><a href="#9-4-STM32F1-外部中断配置思路" class="headerlink" title="9.4 STM32F1 外部中断配置思路"></a>9.4 STM32F1 外部中断配置思路</h3><ol>
+<li>打开对应 GPIO 和 <strong>AFIO</strong> 的 APB2 时钟。</li>
+<li>将目标 GPIO 配置为合适的输入模式。</li>
+<li>通过 <code>GPIO_EXTILineConfig()</code> 选择 EXTI 线对应的 GPIO 端口。</li>
+<li>配置 <code>EXTI_InitTypeDef</code>：选择中断线、模式、触发方式并使能。</li>
+<li>配置 NVIC，允许对应中断通道。</li>
+<li>编写对应 <code>EXTIx_IRQHandler()</code> 函数，并在处理中清除中断挂起标志。</li>
+</ol>
+<p>下面是 <strong>PA0 下降沿触发 EXTI0</strong> 的简化示例：</p>
+<div class="code-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stm32f10x.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">EXTI0_Config</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">    EXTI_InitTypeDef EXTI_InitStructure;</span><br><span class="line">    NVIC_InitTypeDef NVIC_InitStructure;</span><br><span class="line"></span><br><span class="line">    RCC_APB2PeriphClockCmd(</span><br><span class="line">        RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO,</span><br><span class="line">        ENABLE</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;</span><br><span class="line">    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">    GPIO_Init(GPIOA, &amp;GPIO_InitStructure);</span><br><span class="line"></span><br><span class="line">    GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource0);</span><br><span class="line"></span><br><span class="line">    EXTI_InitStructure.EXTI_Line = EXTI_Line0;</span><br><span class="line">    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;</span><br><span class="line">    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;</span><br><span class="line">    EXTI_InitStructure.EXTI_LineCmd = ENABLE;</span><br><span class="line">    EXTI_Init(&amp;EXTI_InitStructure);</span><br><span class="line"></span><br><span class="line">    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;</span><br><span class="line">    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;</span><br><span class="line">    NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;</span><br><span class="line">    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;</span><br><span class="line">    NVIC_Init(&amp;NVIC_InitStructure);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">EXTI0_IRQHandler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (EXTI_GetITStatus(EXTI_Line0) != RESET)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 在此处理按键事件（避免长时间阻塞）</span></span><br><span class="line">        EXTI_ClearITPendingBit(EXTI_Line0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>此示例展示配置流程；是否需要时钟初始化、优先级分组、按键消抖及与其他模块联动，应依完整工程补充。</p>
+</blockquote>
+<hr>
+<h2 id="10-易错点速查"><a href="#10-易错点速查" class="headerlink" title="10. 易错点速查"></a>10. 易错点速查</h2><ol>
+<li><strong>PA0 和 PB0 不是同一个引脚</strong>：端口 A&#x2F;B 不同，只是编号都为 0。</li>
+<li><strong>GPIO 时钟要先开启</strong>：使用 <code>GPIOA</code> 通常先开 <code>RCC_APB2Periph_GPIOA</code>。</li>
+<li><strong><code>GPIO_Init()</code> 第二个参数是指针</strong>：写 <code>&amp;GPIO_InitStructure</code>。</li>
+<li><strong>GPIO 输入、输出读取不同</strong>：<code>ReadInputDataBit()</code> 读管脚状态；<code>ReadOutputDataBit()</code> 读输出寄存器位。</li>
+<li><strong>上拉按键按下通常读到 0</strong>，下拉按键按下通常读到 1；以实际接线为准。</li>
+<li><strong><code>GPIO_Write()</code> 修改整个端口</strong>，不是只改某一个引脚。</li>
+<li><strong>GPIO 速度 50 MHz 不等于自动输出 50 MHz 方波</strong>。</li>
+<li><strong><code>VDD</code> 常用 3.3 V，不要因为 <code>FT</code> 就给 MCU 电源脚接 5 V</strong>。</li>
+<li><strong>EXTI 同编号的 GPIO 无法独立同时映射到同一 EXTI 线</strong>。</li>
+<li><strong>中断处理函数应及时清除挂起位</strong>，并尽量避免耗时操作。</li>
+<li><strong>头文件写声明、源文件写实现</strong>，模块 <code>.c</code> 文件需要加入工程。</li>
+<li><strong>代码中的函数名大小写和下划线必须准确</strong>：例如 <code>GPIO_InitTypeDef</code>、<code>GPIO_InitStructure</code>、<code>GPIO_ReadInputDataBit</code>。</li>
+</ol>
+<hr>
+<p><strong>整理原则</strong>：以原笔记的知识点为主；将不清晰的手写函数名统一为 STM32F1 标准外设库常见正式命名，并针对可能产生误解的地方增加解释。</p>
 
 		</div>
 
@@ -583,7 +1039,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-09-25 19:19:40
+                    :</strong> 2026-11-09 22:24:15
             </li>
         
         <li>
@@ -606,6 +1062,14 @@
 		
 
 		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%BC%80%E5%8F%91/">#开发</a>&nbsp;
+			</li>
+			
+		</ul>
+		
 
 		
 
@@ -618,7 +1082,7 @@
 						<i class="fa-solid fa-chevron-left"></i>
 					</span>
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48"></span>
+						<span class="post-nav-title-item truncate max-w-48">R语言学习记录-1</span>
 						<span class="post-nav-item">上一篇</span>
 					</span>
 				</a>
@@ -721,7 +1185,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">【紧急】STM32速成记录</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%99%E7%A8%8B%E6%98%AFb%E7%AB%991hai-%E9%80%9F%E6%88%90%EF%BC%88%E6%B3%A8%E6%84%8F%EF%BC%9A%E4%B8%8D%E8%83%BD%E4%BF%9D%E8%AF%81%E8%AE%B0%E5%BD%95%E5%86%85%E5%AE%B9%E6%AD%A3%E7%A1%AE%EF%BC%8C%E5%8F%AA%E8%83%BD%E4%BB%A3%E8%A1%A8%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-text">教程是b站1hai+速成（注意：不能保证记录内容正确，只能代表个人理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="nav-text">输出模式</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%99%E7%A8%8B%E6%98%AFb%E7%AB%991hai-%E9%80%9F%E6%88%90%EF%BC%88%E6%B3%A8%E6%84%8F%EF%BC%9A%E4%B8%8D%E8%83%BD%E4%BF%9D%E8%AF%81%E8%AE%B0%E5%BD%95%E5%86%85%E5%AE%B9%E6%AD%A3%E7%A1%AE%EF%BC%8C%E5%8F%AA%E8%83%BD%E4%BB%A3%E8%A1%A8%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-text">教程是b站1hai+速成（注意：不能保证记录内容正确，只能代表个人理解）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">输入模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A8%A1%E5%BC%8F"><span class="nav-text">输出模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#STM32-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86"><span class="nav-text">STM32 学习笔记整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%96%B0%E5%BB%BA-STM32-%E5%B7%A5%E7%A8%8B"><span class="nav-text">1. 新建 STM32 工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%8F%82%E8%80%83%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">1.1 参考目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%B8%B8%E8%A7%81%E5%BA%93%E6%96%87%E4%BB%B6"><span class="nav-text">1.2 常见库文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-STM32-%E7%94%B5%E6%BA%90%E4%B8%8E%E5%BC%95%E8%84%9A%E5%9F%BA%E7%A1%80"><span class="nav-text">2. STM32 电源与引脚基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B8%B8%E8%A7%81%E7%94%B5%E6%BA%90%E5%BC%95%E8%84%9A"><span class="nav-text">2.1 常见电源引脚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-GPIO-%E7%9A%84%E5%88%86%E7%BB%84"><span class="nav-text">2.2 GPIO 的分组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GPIO-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">3. GPIO 基本概念与初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F"><span class="nav-text">3.1 初始化顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="nav-text">3.2 示例代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GPIO-%E7%9A%84%E5%85%AB%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="nav-text">4. GPIO 的八种工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%8E%A8%E6%8C%BD%E8%BE%93%E5%87%BA-vs-%E5%BC%80%E6%BC%8F%E8%BE%93%E5%87%BA"><span class="nav-text">4.1 推挽输出 vs. 开漏输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%BE%93%E5%85%A5%E4%B8%8A%E6%8B%89-%E4%B8%8B%E6%8B%89"><span class="nav-text">4.2 输入上拉&#x2F;下拉</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-GPIO-%E8%BE%93%E5%87%BA%E4%B8%8E%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0"><span class="nav-text">5. GPIO 输出与输入函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0"><span class="nav-text">5.1 输出函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E4%BD%8D%E6%8E%A9%E7%A0%81%EF%BC%88Pin-Mask%EF%BC%89"><span class="nav-text">5.2 位掩码（Pin Mask）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E7%8A%B6%E6%80%81%E8%AF%BB%E5%8F%96"><span class="nav-text">5.3 输入与输出状态读取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8C%89%E9%94%AE%E7%94%B5%E8%B7%AF%E3%80%81%E4%B8%8A%E4%B8%8B%E6%8B%89%E4%B8%8E%E7%94%B5%E5%B9%B3%E5%88%A4%E6%96%AD"><span class="nav-text">6. 按键电路、上下拉与电平判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E4%B8%8A%E6%8B%89%E6%8C%89%E9%94%AE%EF%BC%9A%E6%8C%89%E4%B8%8B%E4%B8%BA%E4%BD%8E%E7%94%B5%E5%B9%B3"><span class="nav-text">6.1 上拉按键：按下为低电平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E4%B8%8B%E6%8B%89%E6%8C%89%E9%94%AE%EF%BC%9A%E6%8C%89%E4%B8%8B%E4%B8%BA%E9%AB%98%E7%94%B5%E5%B9%B3"><span class="nav-text">6.2 下拉按键：按下为高电平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E7%94%B5%E5%B9%B3%E5%88%A4%E6%96%AD%E7%A4%BA%E4%BE%8B"><span class="nav-text">6.3 电平判断示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-C-%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E8%A1%A5%E5%85%85"><span class="nav-text">7. C 语言基础补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E5%B8%B8%E8%A7%81%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9B%BA%E5%AE%9A%E5%AE%BD%E5%BA%A6%E7%B1%BB%E5%9E%8B"><span class="nav-text">7.1 常见整数类型与固定宽度类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-define%EF%BC%9A%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-text">7.2 #define：宏定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-typedef%EF%BC%9A%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-text">7.3 typedef：类型别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-struct%EF%BC%9A%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">7.4 struct：结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-enum%EF%BC%9A%E6%9E%9A%E4%B8%BE"><span class="nav-text">7.5 enum：枚举</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B%E4%B8%8E%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-text">8. 模块化编程与头文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-LED-h"><span class="nav-text">8.1 LED.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-LED-c"><span class="nav-text">8.2 LED.c</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-main-c"><span class="nav-text">8.3 main.c</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-EXTI-%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD%E5%85%A5%E9%97%A8"><span class="nav-text">9. EXTI 外部中断入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-%E4%B8%AD%E6%96%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-text">9.1 中断的基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-STM32F1-%E7%9A%84-EXTI-%E7%BA%BF%E4%B8%8E-GPIO-%E5%BC%95%E8%84%9A"><span class="nav-text">9.2 STM32F1 的 EXTI 线与 GPIO 引脚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-%E5%B8%B8%E7%94%A8%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F"><span class="nav-text">9.3 常用触发方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-STM32F1-%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD%E9%85%8D%E7%BD%AE%E6%80%9D%E8%B7%AF"><span class="nav-text">9.4 STM32F1 外部中断配置思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%98%93%E9%94%99%E7%82%B9%E9%80%9F%E6%9F%A5"><span class="nav-text">10. 易错点速查</span></a>
 
 	</div>
 </div>
