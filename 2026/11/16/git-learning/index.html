@@ -478,7 +478,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -486,7 +486,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -541,8 +541,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-11-16 22:21:08</span>
-            <span class="mobile">2026-11-16 22:21:08</span>
+            <span class="desktop">2026-11-18 23:21:07</span>
+            <span class="mobile">2026-11-18 23:21:07</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -592,8 +592,8 @@
         <head>
             <meta charset='utf-8' />
             <title>Music Player</title>
- 	    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css'>
-            <script src='https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js'></script>  
+ 	    <link rel='stylesheet' href='../../../../APlayer.min.css'>
+            <script src='../../../../APlayer.min.js'></script>  
             <style>
                 .aplayer-list {
                     display: block !important;
@@ -731,6 +731,85 @@
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 1. 获取远程最新代码</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"># 2. 修改 Python / R 代码</span><br><span class="line"># ...</span><br><span class="line"></span><br><span class="line"># 3. 查看修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 4. 将修改加入暂存区</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 5. 创建版本</span><br><span class="line">git commit -m &quot;Update data analysis&quot;</span><br><span class="line"></span><br><span class="line"># 6. 上传到 GitHub</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></div>
 
 <p>今天先到这</p>
+<p>2天后</p>
+<h3 id="Git-撤销"><a href="#Git-撤销" class="headerlink" title="Git 撤销"></a>Git 撤销</h3><p>有点晚了，但还是继续吧</p>
+<h4 id="git-restore"><a href="#git-restore" class="headerlink" title="git restore"></a>git restore</h4><p>假如你原本的代码时</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;&quot;)</span><br></pre></td></tr></table></figure></div>
+<p>结果不小心改成了</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printff(&quot;&quot;)</span><br></pre></td></tr></table></figure></div>
+<p>但是这个时候还没执行<code>git add</code></p>
+<p>这个时候可以使用</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore main.py</span><br></pre></td></tr></table></figure></div>
+<p>会把工作区中<code>main.py</code>的修改恢复到最近一次提交的版本</p>
+<p>不过这会丢失该文件尚未暂存的修改,不能随便执行</p>
+<h4 id="git-restore-–staged-取消暂存"><a href="#git-restore-–staged-取消暂存" class="headerlink" title="git restore –staged 取消暂存"></a>git restore –staged 取消暂存</h4><p>如果你已经</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add main.py</span><br></pre></td></tr></table></figure></div>
+<p>但是这个不应该提交</p>
+<p>可以</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged main.py</span><br></pre></td></tr></table></figure></div>
+<p>这会将文件从暂存区移出，但保留你在工作区中写的代码</p>
+<p>对比一下：</p>
+<p>命令	效果</p>
+<p>git restore main.py	撤销工作区修改</p>
+<p>git restore –staged main.py	取消暂存，保留工作区修改</p>
+<p>这两个命令一定要区分</p>
+<h4 id="git-reset-回退提交"><a href="#git-reset-回退提交" class="headerlink" title="git reset 回退提交"></a>git reset 回退提交</h4><p>假设你已经提交了三次：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A → B → C</span><br><span class="line">        ↑</span><br><span class="line">      当前版本</span><br></pre></td></tr></table></figure></div>
+
+<p>现在发现 C 版本有问题，想回到 B。</p>
+<p>可以使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure></div>
+
+<p>这里的 HEAD 表示当前所在的提交，HEAD~1 表示上一个提交。</p>
+<p>但是，reset 有三种模式：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">命令	提交记录	暂存区	工作区</span><br><span class="line">--soft	回退	保留	保留</span><br><span class="line">--mixed	回退	回退	保留</span><br><span class="line">--hard	回退	回退	回退</span><br></pre></td></tr></table></figure></div>
+<p>分别解释：</p>
+<p>① soft</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure></div>
+
+<p>撤销最近一次提交，但保留修改，而且修改仍然处于暂存状态。</p>
+<p>② mixed</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --mixed HEAD~1</span><br></pre></td></tr></table></figure></div>
+
+<p>撤销最近一次提交，同时取消暂存，但保留文件修改。</p>
+<p>这是 git reset 默认模式。</p>
+<p>③ hard</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure></div>
+
+<p>直接将提交、暂存区和已跟踪文件的工作区恢复到上一个提交。</p>
+<p>感觉我也用不到吧</p>
+<h4 id="git-revert-安全撤销提交"><a href="#git-revert-安全撤销提交" class="headerlink" title="git revert 安全撤销提交"></a>git revert 安全撤销提交</h4><p>假设：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A → B → C</span><br></pre></td></tr></table></figure></div>
+
+<p>你发现 C 有问题</p>
+<p>使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert HEAD</span><br></pre></td></tr></table></figure></div>
+
+<p>Git 会创建一个新的提交 D，用于抵消 C 的修改。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A → B → C → D</span><br></pre></td></tr></table></figure></div>
+
+<p>注意：</p>
+<ul>
+<li>C 仍然保留在历史记录中。</li>
+<li>D 是一次新的提交。</li>
+<li>最终代码效果相当于撤销 C。<br>什么时候使用？</li>
+</ul>
+<p>如果代码已经推送到 GitHub，或者其他人正在使用这个分支，通常优先考虑 <code>git revert</code>，而不是重写公共提交历史</p>
+<h4 id="gitignore-忽略文件"><a href="#gitignore-忽略文件" class="headerlink" title=".gitignore 忽略文件"></a>.gitignore 忽略文件</h4><p>你的项目并不是要把所有文件上传的</p>
+<p>比如你的.env 以及一些个人数据什么的</p>
+<p>这时在项目的根文件夹创建<code>.gitignore</code></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data/private</span><br><span class="line"></span><br><span class="line">.env</span><br><span class="line"></span><br><span class="line">.venv/</span><br></pre></td></tr></table></figure></div>
+
+<p>这里有些GPT讲的写法</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">写法	含义</span><br><span class="line">*.pyc	忽略所有 pyc 文件</span><br><span class="line">output/	忽略 output 文件夹</span><br><span class="line">.env	忽略名为 .env 的文件</span><br><span class="line">__pycache__/	忽略指定目录</span><br><span class="line">!important.csv	取消对该文件的忽略规则</span><br></pre></td></tr></table></figure></div>
+<p>注意：.gitignore 主要对尚未被 Git 跟踪的文件生效。已经提交或跟踪的文件，不会因为后来加入忽略规则就自动停止跟踪。</p>
+<p>如果已经跟踪了某个文件，可以使用：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached secret.txt</span><br></pre></td></tr></table></figure></div>
+
+<p>这会从 Git 的索引中移除它，但保留本地文件。之后再提交这个变化</p>
+<h4 id="PR"><a href="#PR" class="headerlink" title="PR"></a>PR</h4><p>分支创建后提交代码推送到Github,再创建Pull Request</p>
+<p>不过我估计没什么机会了吧</p>
+<p>学习大概到这就结束了…</p>
 
 		</div>
 
@@ -745,7 +824,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-11-16 22:21:08
+                    :</strong> 2026-11-18 23:21:07
             </li>
         
         <li>
@@ -781,6 +860,18 @@
 
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2026/11/18/261118/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">&lt;草薙宁宁也要ミステリー(谜团)&gt;后记</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
@@ -879,7 +970,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">迟到不能再迟的Git系统学习</div>
-		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E7%A1%80%E7%9A%84Git%E6%93%8D%E4%BD%9C"><span class="nav-text">最基础的Git操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">GitHub与远程仓库</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E7%A1%80%E7%9A%84Git%E6%93%8D%E4%BD%9C"><span class="nav-text">最基础的Git操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">GitHub与远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E6%92%A4%E9%94%80"><span class="nav-text">Git 撤销</span></a></li></ol>
 
 	</div>
 </div>
@@ -907,7 +998,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 20 篇文章
+                        共撰写了 21 篇文章
                     </span>
                     
                 </p>
